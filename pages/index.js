@@ -37,13 +37,13 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://cwmservices.vercel.app/portfolio")
+    fetch("https://cwmservices.vercel.app/api/portfolio")
       .then((response) => response.json())
       .then((data) => setData(data["projects"]));
   }, []);
 
   useEffect(() => {
-    fetch("https://cwmservices.vercel.app/portfolio")
+    fetch("https://cwmservices.vercel.app/api/portfolio")
       .then((response) => response.json())
       .then((data) => setTestimonials(data["testimonials"]));
   }, []);
