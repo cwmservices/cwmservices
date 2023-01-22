@@ -81,6 +81,8 @@ a {
   top: 0;
 }
 
+
+
 @media only screen and (max-width: 600px) {
   .card {
     width: 300px;
@@ -89,6 +91,17 @@ a {
   .mobile-responsive{
     flex-direction: column;
     justify-content: center;
+  }
+  .mobile-navigation{
+    justify-content: center;
+  }
+  .mobile-burgur{
+   position: absolute;
+   top: 40px;
+   z-index: 1;
+  }
+  .mobile-responsive-style{
+    
   }
 }
 
