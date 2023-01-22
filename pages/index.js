@@ -431,13 +431,13 @@ export default function Home() {
               </div>
             </div>
             <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
-              <Image src={mobile} width={100} height={100} />
+              <Image src={mobile} width={100} height={100} alt="" />
               <h3 className="text-lg font-medium pt-8 pb-2 ">
                 App Development
               </h3>
               <p className="py-2">
-                Do you have an idea for your next mobile app? Let's make it a
-                reality.
+                Do you have an idea for your next mobile app? Let&apos;s make it
+                a reality.
               </p>
               <h4 className="py-4 text-teal-600">Technologies I Use</h4>
               <div className="flex justify-between mb-1">
@@ -634,7 +634,7 @@ export default function Home() {
               I have created many projects including E-Commerce and Chat
               Applications.
             </p>
-            <ul className="flex py-10 flex justify-center dark:text-white">
+            <ul className="flex py-10 justify-center dark:text-white">
               <button
                 onClick={() => setFilterCategory(data)}
                 className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -779,7 +779,7 @@ export default function Home() {
             className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md"
           >
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
-              Let's Discuss Your Project
+              Let&apos;s Discuss Your Project
             </h2>
             <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
               Got an idea? Want to make it happen? Need any web development and
