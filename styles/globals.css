@@ -97,7 +97,7 @@ a {
   }
   .mobile-burgur{
    position: absolute;
-   top: 40px;
+   top: 50px;
    z-index: 1;
   }
   .mobile-responsive-style{
