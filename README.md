@@ -1,21 +1,14 @@
-Introduction
-This is a full stack developer portfolio project built using React, Node.js, and Tailwind CSS. The project showcases my skills and experience as a full stack developer and includes all my projects.
+My name is Masood, I am a Full stack Developer with an experience level of 3 years. I have completed my intermediate in ICS and Currently doing my BSCS at KUST. I also do freelancing and content creation and find a lot of satisfaction and love from my clients and people i work with. My services includes creating and developing fast and user friendly web and mobile applications. 
 
-Features
-Responsive design
-Contact form
 
-Built With
-React
-Node.js
-Express
-Tailwind CSS
+I work on the following technologies and created bunch of real world applications using them:-
 
-Author - cwmservices
+Programming Languages- JavaScript.
 
-License - MIT
+Front-End Skills- HTML5, CSS3, JavaScript, Bootstrap, Typescript, React, Next Js, React Native, Electron, Tailwind CSS, SAAS/SCSS, Material UI.
 
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+Back-End Skills- Node.js, Express Js.
+
+Databases- MongoDB, MySQL, Sqlite.
+
+Other Tools- GitHub, Firebase.
