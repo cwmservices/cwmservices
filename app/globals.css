@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tabs-boxed .tab-active:not(.tab-disabled):not([disabled]) {
+  background-color: #f08700;
+  color: white;
+}
+
+.tabs-boxed .tab-active:not(.tab-disabled):not([disabled]):hover {
+  background-color: #f08700;
+  color: white;
+}
+
+.whatsappanim {
+  transition-duration: 0.4s;
+  transform: scale(1);
+}
+
+.whatsappanim:hover {
+  transform: scale(1.1);
+}
+
+.hero-content {
+  justify-content: space-between;
+  width: 100%;
+}
