@@ -10,7 +10,7 @@ const MessageModal = ({ isOpen, onClose }) => {
   const messageBox = useRef(null);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (messageBox.current && !messageBox.current?.contains(event.target as Node)) {
+    if (messageBox.current && !messageBox.current.contains(event.target as Node)) {
       onClose()
     }
   };
