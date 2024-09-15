@@ -19,7 +19,7 @@ function Header() {
   }
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (mobileNavbar.current && !(mobileNavbar.current.contains(event.target as Node))) {
+    if (mobileNavbar.current && !mobileNavbar.current?.contains(event.target as Node)) {
       setNavbar(false);
     }
   };
