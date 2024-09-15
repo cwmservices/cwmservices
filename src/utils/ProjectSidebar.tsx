@@ -20,7 +20,7 @@ function ProjectSidebar({ project, onClose }: any) {
 
   return (
     <div>
-      <div className="fixed top-0 left-0 w-full h-full bg-black opacity-60"></div>
+      <div className="fixed top-0 left-0 w-full z-[998] h-full bg-black opacity-60"></div>
       <div
         style={{ zIndex: 999 }}
         id="project-sidebar"
@@ -56,8 +56,8 @@ function ProjectSidebar({ project, onClose }: any) {
             src={project.img}
             alt="Project gif"
             width={300}
-            height={300}
-            className="my-4 rounded-lg w-full h-[130px]"
+            height={400}
+            className="my-4 rounded-lg w-full h-[400px]"
             style={{ objectFit: "cover", objectPosition: "top" }}
           />
           <h3 className="text-xl font-semibold pb-2">About</h3>
@@ -81,7 +81,7 @@ function ProjectSidebar({ project, onClose }: any) {
                 width={20}
                 height={20}
               />
-              <h4 className="pl-1">Website</h4>
+              <h4 className="pl-1">Live Preview</h4>
             </div>
             <a
               href={project.demo}
@@ -90,15 +90,7 @@ function ProjectSidebar({ project, onClose }: any) {
             >
               {project.demo}
             </a>
-            <div className="flex items-center font-bold text-dark">
-              <Image
-                src="/coding.png"
-                alt="website icon"
-                width={20}
-                height={20}
-              />
-              <h4 className="pl-1">Code</h4>
-            </div>
+            
             <a
               href={project.code}
               target="_blank"

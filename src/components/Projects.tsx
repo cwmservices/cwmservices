@@ -12,6 +12,7 @@ function Projects() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [visibleProjects, setVisibleProjects] = useState(3); // Initial number of projects to show
 
   const openModal = (project: any) => {
     setSelectedProject(project);
@@ -24,9 +25,7 @@ function Projects() {
   };
 
   const fetchProjects = async () => {
-    const projectsJSON = await fetch(
-      "https://cwmservices.vercel.app/api/portfolio"
-    );
+    const projectsJSON = await fetch("https://www.cwmservices.dev/api/portfolio");
     const projectsData = await projectsJSON.json();
     setProjects(projectsData.Projects);
     setFilteredProjects(projectsData.Projects);
@@ -38,6 +37,7 @@ function Projects() {
 
   const filterProjects = (category: any) => {
     setActiveCategory(category);
+    setVisibleProjects(3); // Reset visible projects when category changes
     if (category === "ALL") {
       setFilteredProjects(projects);
     } else {
@@ -48,52 +48,46 @@ function Projects() {
     }
   };
 
+  const loadMoreProjects = () => {
+    setVisibleProjects((prev) => prev + 3); // Show 3 more projects on click
+  };
+
   return (
     <div id="scrollToProjects">
       <h1 className="text-center text-3xl lg:text-5xl pt-10 font-primary font-bold text-primary">
         Some of our finest work.
       </h1>
       <p className="text-center font-bold text-2xl px-4 lg:text-4xl mt-6">
-        our projects
+        Our projects
       </p>
       {/* tabs */}
       <div className="tabs flex justify-center items-center mt-10 bg-transparent tabs-boxed">
         <a
-          className={`tab ${
-            activeCategory === "ALL" && "tab-active"
-          } font-secondory m-1 text-lg bg-gray-100`}
+          className={`tab ${activeCategory === "ALL" && "tab-active"} font-secondory m-1 text-lg bg-gray-100`}
           onClick={() => filterProjects("ALL")}
         >
           ALL
         </a>
         <a
-          className={`tab m-1 font-secondory bg-gray-100 ${
-            activeCategory === "MOBILE" && "tab-active"
-          } text-lg`}
+          className={`tab m-1 font-secondory bg-gray-100 ${activeCategory === "MOBILE" && "tab-active"} text-lg`}
           onClick={() => filterProjects("MOBILE")}
         >
           Mobile Apps
         </a>
         <a
-          className={`tab m-1 font-secondory text-lg bg-gray-100 ${
-            activeCategory === "WEB" && "tab-active"
-          }`}
+          className={`tab m-1 font-secondory text-lg bg-gray-100 ${activeCategory === "WEB" && "tab-active"}`}
           onClick={() => filterProjects("WEB")}
         >
           Web Apps
         </a>
         <a
-          className={`tab m-1 font-secondory bg-gray-100 ${
-            activeCategory === "UI/UX" && "tab-active"
-          } text-lg`}
+          className={`tab m-1 font-secondory bg-gray-100 ${activeCategory === "UI/UX" && "tab-active"} text-lg`}
           onClick={() => filterProjects("UI/UX")}
         >
           Designs
         </a>
         <a
-          className={`tab m-1 font-secondory bg-gray-100 ${
-            activeCategory === "WORDPRESS" && "tab-active"
-          } text-lg`}
+          className={`tab m-1 font-secondory bg-gray-100 ${activeCategory === "WORDPRESS" && "tab-active"} text-lg`}
           onClick={() => filterProjects("WORDPRESS")}
         >
           Wordpress
@@ -102,7 +96,7 @@ function Projects() {
 
       {/* projects */}
       <div className="flex justify-center flex-wrap lg:justify-between items-center mt-10 w-[90%] mx-auto">
-        {filteredProjects.map((project: any) => {
+        {filteredProjects.slice(0, visibleProjects).map((project: any) => {
           return (
             <div
               onClick={() => openModal(project)}
@@ -155,6 +149,18 @@ function Projects() {
           );
         })}
       </div>
+
+      {/* Load More Button */}
+      {visibleProjects < filteredProjects.length && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={loadMoreProjects}
+            className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-gray-200 hover:text-black transition duration-300"
+          >
+            Load More
+          </button>
+        </div>
+      )}
 
       {isModalOpen && (
         <ProjectSidebar project={selectedProject} onClose={closeModal} />

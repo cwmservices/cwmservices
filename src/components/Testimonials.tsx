@@ -9,7 +9,7 @@ function Testimonials() {
 
   const fetchProjects = async () => {
     const testimonialsJSON = await fetch(
-      "https://cwmservices.vercel.app/api/portfolio"
+      "https://www.cwmservices.dev/api/portfolio"
     );
     const testimonialsData = await testimonialsJSON.json();
     setTestimonials(testimonialsData.Testimonials);
@@ -45,7 +45,7 @@ function Testimonials() {
         </button>
       </div>
 
-      <div className="flex lg:flex-nowrap md:mt-14 mt-8 flex-wrap justify-center items-center">
+      <div className="flex lg:flex-nowrap md:mt-14 mt-12 flex-wrap justify-center items-center">
         <div
           ref={scrollTestimonials}
           className="overflow-hidden md:w-auto w-[300px] flex justify-between items-center pb-10 h-full scrollbar-hide whitespace-nowrap scroll-smooth"
@@ -54,8 +54,11 @@ function Testimonials() {
             return (
               <blockquote
                 key={Testimonial.id}
-                className="flex h-full flex-col shadow-lg justify-between w-[300px] md:w-[450px] bg-white px-6 py-8 m-4"
+                className="flex h-full flex-col relative shadow-lg justify-between w-[300px] md:w-[450px] bg-white px-6 py-8 m-4"
               >
+                <div className="flex justify-center opacity-80 items-center absolute top-4 right-4">
+                  <img src={Testimonial.origin} alt="origin" className="w-[50px] md:w-[70px] object-contain md:h-[30px]" />
+            </div>
                 <div>
                   <div className="flex">
                     <span className="flex gap-0.5 mr-1 w-8 bg-orange-400 text-white p-2">
@@ -76,17 +79,15 @@ function Testimonials() {
                   </div>
 
                   <div className="mt-4">
-                    <p
-                      className="mt-4 w-[300px] md:w-[450px] text-gray-700"
-                      dangerouslySetInnerHTML={{
-                        __html: Testimonial.testimonial,
-                      }}
-                    ></p>
-                  </div>
+  <p className="mt-4 w-[280px] md:w-[400px] text-gray-700 break-words whitespace-normal">
+    {Testimonial.testimonial}
+  </p>
+</div>
+
                 </div>
 
-                <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                  &mdash; {Testimonial.name}
+                <footer className="mt-4 text-sm font-medium flex justify-start items-center text-gray-700 sm:mt-6">
+                  <span>&mdash; {Testimonial.name}</span> <img src={Testimonial.country} alt="Country flag" className="w-6 object-contain ml-2 h-6" />
                 </footer>
               </blockquote>
             );

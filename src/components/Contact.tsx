@@ -1,18 +1,62 @@
-import React from "react";
+"use client"
+
+import React, { useState } from "react";
 import {
   AiFillFacebook,
   AiFillLinkedin,
   AiFillPhone,
+  AiFillRedditCircle,
   AiFillSkype,
   AiFillTwitterCircle,
   AiFillYoutube,
   AiOutlineMail,
 } from "react-icons/ai";
-import { FaQuora } from "react-icons/fa";
+import { FaCheck, FaCopy, FaQuora } from "react-icons/fa";
 
 import { MdFace, MdFacebook } from "react-icons/md";
 
 function Contact() {
+
+  const [copied, setCopied] = useState(false);
+  const [copiedNumber, setCopiedNumber] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyTextClick = async (textToCopy:string) => {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    } catch (error) {
+      console.error("Unable to copy to clipboard:", error);
+    }
+  };
+
+  const handleCopyTextClickEmail = async (textToCopy:string) => {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      setCopiedEmail(true);
+      setTimeout(() => {
+        setCopiedEmail(false);
+      }, 2000);
+    } catch (error) {
+      console.error("Unable to copy to clipboard:", error);
+    }
+  };
+
+  const handleCopyTextClickNumber = async (textToCopy:string) => {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      setCopiedNumber(true);
+      setTimeout(() => {
+        setCopiedNumber(false);
+      }, 2000);
+    } catch (error) {
+      console.error("Unable to copy to clipboard:", error);
+    }
+  };
+
   return (
     <div className="bg-light" id="scrollToContact">
       <div className="w-[90%] mt-2 py-20 mx-auto flex justify-around items-center flex-wrap">
@@ -38,27 +82,54 @@ function Contact() {
               <div>
                 <AiFillSkype size="20" />
               </div>
+              <div className="flex justify-start items-center">
               <div className="pl-2">
                 <span className="font-bold pr-2">Skype</span>
                 ID-8c8b46fdad7744c2
+              </div>
+              <button
+                      onClick={()=>handleCopyTextClick("8c8b46fdad7744c2")}
+                      className="bg-transparent rounded-lg px-4"
+                    >
+                      {copied ? <FaCheck color="gray"/> : <FaCopy color="gray"/>}
+                    </button>
               </div>
             </div>
             <div className="flex justify-left items-center">
               <div>
                 <AiOutlineMail size="20" />
               </div>
+              <div className="flex justify-start items-center">
+
               <div className="pl-2 py-3">
+              
                 <span className="font-bold pr-2">Email</span>
-                cwmservicesofficial@gmail.com
+                masood@cwmservices.dev
+              </div>
+              <button
+                      onClick={()=>handleCopyTextClickEmail("masood@cwmservices.dev")}
+                      className="bg-transparent rounded-lg px-4"
+                    >
+                      {copiedEmail ? <FaCheck color="gray"/> : <FaCopy color="gray"/>}
+                    </button>
               </div>
             </div>
             <div className="flex justify-left items-center">
               <div>
                 <AiFillPhone size="20" />
               </div>
+              <div className="flex justify-start items-center">
+
               <div className="pl-2">
                 <span className="font-bold pr-2">Phone</span>+92 3319272285
               </div>
+              <button
+                      onClick={()=>handleCopyTextClickNumber("+92 3319272285")}
+                      className="bg-transparent rounded-lg px-4"
+                    >
+                      {copiedNumber ? <FaCheck color="gray"/> : <FaCopy color="gray"/>}
+                    </button>
+            </div>
             </div>
           </div>
           <div className="flex justify-between items-center w-64">
@@ -75,8 +146,8 @@ function Contact() {
             "
               />
             </a>
-            <a href="https://www.twitter.com/cwmservices" target="_blank">
-              <AiFillTwitterCircle
+            <a href="https://www.reddit.com/user/cwmservices" target="_blank">
+              <AiFillRedditCircle
                 size="30"
                 className="hover:text-gray-700 cursor-pointer"
               />
@@ -91,7 +162,7 @@ function Contact() {
         </div>
         <div className="lg:w-[30%] w-full lg:mt-0 mt-10 bg-white p-6 shadow-xl">
           <h3 className="py-2 font-bold text-xl text-primary">
-            Let&apos;s Work Togather.
+            Let&apos;s Connect.
           </h3>
           <div className="flex flex-col justify-center items-left flex-wrap">
             <input

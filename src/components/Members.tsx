@@ -1,28 +1,63 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { AiFillCaretLeft, AiFillCaretRight, AiFillStar } from "react-icons/ai";
 import { FaDotCircle } from "react-icons/fa";
 
-function Members() {
-  const [members, setMembers] = useState([]);
-  const fetchMembers = async () => {
-    const membersJSON = await fetch("https://cwmservices.vercel.app/api/portfolio");
-    const membersData = await membersJSON.json();
-    setMembers(membersData.Members);
+function Testimonials() {
+  const [testimonials, setTestimonials] = useState([]);
+  const scrollTestimonials: any = useRef();
+
+  const fetchProjects = async () => {
+    const testimonialsJSON = await fetch(
+      "https://www.cwmservices.dev/api/portfolio"
+    );
+    const testimonialsData = await testimonialsJSON.json();
+    setTestimonials(testimonialsData.Members);
   };
 
   useEffect(() => {
-    fetchMembers();
+    fetchProjects();
   }, []);
 
-  const renderMembers = () => {
-    return members.map((Member: any) => (
-      <div
-        key={Member.id}
-        className="flex h-full relative flex-col my-4 px-6 shadow-lg justify-center w-full md:justify-between md:w-[400px] bg-white py-8"
-      >
-        <div className="mt-4 flex justify-center items-center flex-col">
+  return (
+    <section
+      className="mx-auto relative w-[90%] pt-20"
+      id="scrollToTeam"
+    >
+      <h2 className="md:text-5xl text-3xl pb-2 font-bold tracking-tight text-primary sm:text-5xl text-center">
+        Whom<span className="border-b pb-4 px-3">We</span>Work
+      </h2>
+      <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10">
+        Our Aspiring Members
+      </p>
+      <div className="absolute right-0 md:pt-0 pt-4">
+        <button
+          onClick={() => scrollTestimonials.current.scrollBy(-340, 0)}
+          className="bg-transparent hover:bg-gray-300 border border-gray-400 rounded-full p-4"
+        >
+          <AiFillCaretLeft color="black" size="10" />
+        </button>
+        <button
+          onClick={() => scrollTestimonials.current.scrollBy(340, 0)}
+          className="bg-transparent hover:bg-gray-300 border border-gray-400 ml-2 rounded-full p-4"
+        >
+          <AiFillCaretRight color="black" size="10" />
+        </button>
+      </div>
+
+      <div className="flex lg:flex-nowrap md:mt-14 mt-12 flex-wrap justify-center items-center">
+        <div
+          ref={scrollTestimonials}
+          className="overflow-hidden md:w-auto w-[300px] flex justify-between items-center pb-10 h-full scrollbar-hide whitespace-nowrap scroll-smooth"
+        >
+          {testimonials.map((Member: any) => {
+            return (
+              <blockquote
+                key={Member.id}
+                className="flex h-full flex-col relative shadow-lg justify-between w-[300px] md:w-[450px] bg-white pr-6 py-8 m-4"
+              >
+                <div className="mt-4 flex w-[300px] md:w-[450px] justify-center items-center flex-col">
           {Member.name === "Masood" && (
             <div className="flex justify-center items-center absolute top-4 right-4">
               <p className="pr-2">Founder</p>
@@ -53,29 +88,13 @@ function Members() {
             {Member.title}
           </p>
         </div>
-      </div>
-    ));
-  };
-
-  return (
-    <div id="scrollToTeam" className="relative w-[90%] mx-auto">
-      <h1
-        id="scrollToElement"
-        className="text-center pt-10 text-3xl lg:text-5xl font-primary font-bold text-primary"
-      >
-        Who<span className="border-b pb-3 border-gray-300">m We</span> Work
-      </h1>
-      <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10">
-        Our Aspiring Members
-      </p>
-
-      <div className="flex lg:flex-nowrap mt-4 flex-wrap justify-center items-center">
-        <div className="overflow-hidden w-full md:my-0 my-6 flex flex-wrap justify-between items-center pb-3 h-full scrollbar-hide whitespace-nowrap scroll-smooth">
-          {renderMembers()}
+              </blockquote>
+            );
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
-export default Members;
+export default Testimonials;

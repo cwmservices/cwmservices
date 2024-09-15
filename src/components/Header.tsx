@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import MessageModal from "../utils/MessageBox"
 
 function Header() {
   const [navbar, setNavbar] = useState(false);
+  const mobileNavbar = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleMenuItemClick = (sectionId: any) => {
     document?.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
@@ -14,6 +17,20 @@ function Header() {
   function toggleNavbar() {
     setNavbar(!navbar);
   }
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (mobileNavbar.current && !mobileNavbar.current.contains(event.target as Node)) {
+      setNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="navbar bg-base-100 w-[90%] mx-auto">
@@ -39,13 +56,14 @@ function Header() {
             </svg>
           </div>
           <ul
-            style={{ position: "absolute", top: 51 }}
-            className={`menu menu-sm mt-3 z-[1] py-2 shadow bg-base-100 rounded-sm md:hidden ${
+            style={{ position: "absolute",paddingLeft:"30px",paddingRight:"30px", left:0,top: 51 }}
+            className={`menu menu-sm w-full mt-3 z-[999] py-2 shadow bg-base-100 rounded-sm md:hidden ${
               navbar ? "block" : "hidden"
             }`}
+            ref={mobileNavbar}
           >
             <li onClick={() => handleMenuItemClick("scrollToHome")}>
-              <a className="py-2 pl-2 text-lg font-secondary">Home</a>
+              <a className="py-2 text-lg font-secondary">Home</a>
             </li>
             <li onClick={() => handleMenuItemClick("scrollToServices")}>
               <a className="py-2 text-lg font-secondary">Services</a>
@@ -97,12 +115,17 @@ function Header() {
       </div>
 
       <div className="navbar-end">
-        <a href="https://www.fiverr.com/cwmservices" target="_blank">
-          <button className="btn bg-primary hover:bg-secondory text-white">
+          <button
+          onClick={() => setIsModalOpen(true)}
+          className="btn bg-primary hover:bg-secondory text-white">
             Get A Quote
           </button>
-        </a>
       </div>
+
+      <MessageModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
