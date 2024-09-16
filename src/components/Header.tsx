@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import MessageModal from "../utils/MessageBox"
 
@@ -8,34 +8,39 @@ function Header() {
   const [navbar, setNavbar] = useState(false);
   const mobileNavbar = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleButtonRef = useRef(null);
 
+  
   const handleMenuItemClick = (sectionId: any) => {
     document?.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     setNavbar(false);
   };
 
-  function toggleNavbar() {
-    setNavbar(!navbar);
-  }
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (mobileNavbar.current && !mobileNavbar.current?.contains(event.target as Node)) {
-      setNavbar(false);
-    }
-  };
-
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    const handleClickOutside = (event:any) => {
+      if (navbar &&
+          mobileNavbar.current && 
+          !mobileNavbar.current.contains(event.target) &&
+          toggleButtonRef.current &&
+          !toggleButtonRef.current.contains(event.target)) {
+        setNavbar(false);
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [navbar]);
+
+ const toggleNavbar =() => {
+    setNavbar(!navbar);
+  }
 
   return (
     <div className="navbar bg-base-100 w-[90%] mx-auto">
       <div className="navbar-start">
-        <div className="dropdownbutton" onClick={toggleNavbar}>
+        <div className="dropdownbutton" ref={toggleButtonRef} onClick={toggleNavbar}>
           <div
             tabIndex={0}
             className="btn btn-ghost bg-slate-100 lg:hidden md:mr-0 mr-4"

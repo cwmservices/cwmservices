@@ -50,10 +50,10 @@ function Banner() {
         />
         <div>
           <p className="py-6 text-white lg:text-xl font-semibold font-primary">
-            <span className="border-b pb-4 md:pb-3">CRAFTING DIGIT</span>AL
+            <span className="border-b pb-9 md:pb-3">CRAFTING DIGIT</span>AL
             EXPERIENCES THAT INSPIRE
           </p>
-          <h1 className="xl:w-[600px] xl:text-7xl text-4xl text-white font-bold font-primary">
+          <h1 className="xl:w-[600px] xl:text-7xl text-3xl leading-[2.35rem] text-[2.199rem] text-white font-bold font-primary">
             Elevate Your Vision with Our Web and Mobile App Expertise.
           </h1>
         </div>
