@@ -32,7 +32,7 @@ function Contact() {
     requestType: "Service Request",
     message: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<any>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -58,7 +58,7 @@ function Contact() {
   };
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors:any = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
