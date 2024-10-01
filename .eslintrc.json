@@ -2,6 +2,7 @@
   "extends": "next/core-web-vitals",
   "rules": {
     "rule-name-to-disable": "off",
-    "another-rule-to-disable": "off"
+    "another-rule-to-disable": "off",
+    "react/no-unescaped-entities": "off"
   }
 }

@@ -269,6 +269,7 @@ function Contact() {
         <div className="p-8 text-center">
           <h2 className="text-2xl font-bold mb-4 text-primary">Thank You!</h2>
           <p className="mb-6 text-gray-700">
+         
             Your message has been sent successfully. We'll get back to you via the provided email as soon as possible.
           </p>
           <button
