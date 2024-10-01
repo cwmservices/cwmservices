@@ -84,7 +84,7 @@ function Projects() {
           className={`tab m-1 font-secondory bg-gray-100 ${activeCategory === "UI/UX" && "tab-active"} text-lg`}
           onClick={() => filterProjects("UI/UX")}
         >
-          Designs
+          UI/UX
         </a>
         <a
           className={`tab m-1 font-secondory bg-gray-100 ${activeCategory === "WORDPRESS" && "tab-active"} text-lg`}

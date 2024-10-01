@@ -2,65 +2,113 @@
 
 import React, { useState } from "react";
 import {
-  AiFillFacebook,
-  AiFillLinkedin,
-  AiFillPhone,
-  AiFillRedditCircle,
   AiFillSkype,
-  AiFillTwitterCircle,
+  AiFillLinkedin,
   AiFillYoutube,
+  AiFillPhone,
   AiOutlineMail,
 } from "react-icons/ai";
-import { FaCheck, FaCopy, FaQuora } from "react-icons/fa";
+import { FaCheck, FaCopy } from "react-icons/fa";
+import { MdFacebook } from "react-icons/md";
+import {apiURL} from "../custom/api"
 
-import { MdFace, MdFacebook } from "react-icons/md";
+const Modal = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+      <div className="bg-white rounded-lg p-8 max-w-md w-full">
+        {children}
+      </div>
+    </div>
+  );
+};
 
 function Contact() {
+  const [copied, setCopied] = useState({ skype: false, email: false, phone: false });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    requestType: "Service Request",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [copied, setCopied] = useState(false);
-  const [copiedNumber, setCopiedNumber] = useState(false);
-  const [copiedEmail, setCopiedEmail] = useState(false);
-
-  const handleCopyTextClick = async (textToCopy:string) => {
+  const handleCopyText = async (type:any, textToCopy:any) => {
     try {
       await navigator.clipboard.writeText(textToCopy);
-      setCopied(true);
+      setCopied({ ...copied, [type]: true });
       setTimeout(() => {
-        setCopied(false);
+        setCopied({ ...copied, [type]: false });
       }, 2000);
     } catch (error) {
       console.error("Unable to copy to clipboard:", error);
     }
   };
 
-  const handleCopyTextClickEmail = async (textToCopy:string) => {
-    try {
-      await navigator.clipboard.writeText(textToCopy);
-      setCopiedEmail(true);
-      setTimeout(() => {
-        setCopiedEmail(false);
-      }, 2000);
-    } catch (error) {
-      console.error("Unable to copy to clipboard:", error);
+  const handleInputChange = (e:any) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: "" });
     }
   };
 
-  const handleCopyTextClickNumber = async (textToCopy:string) => {
-    try {
-      await navigator.clipboard.writeText(textToCopy);
-      setCopiedNumber(true);
-      setTimeout(() => {
-        setCopiedNumber(false);
-      }, 2000);
-    } catch (error) {
-      console.error("Unable to copy to clipboard:", error);
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email is invalid";
     }
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+    return newErrors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(`${apiURL}/submit-contact-form`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsModalOpen(true); 
+        setFormData({ name: "", email: "", requestType: "Service Request", message: "" });
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
     <div className="bg-light" id="scrollToContact">
-      <div className="w-[90%] mt-2 py-20 mx-auto flex justify-around items-center flex-wrap">
-        <div className="lg:w-[35%]">
+      <div className="w-[90%] mt-2 py-20 mx-auto flex justify-around items-start flex-wrap">
+      <div className="lg:w-[35%]">
           <h1 className="text-primary font-primary font-bold text-2xl lg:text-5xl">
             <span className="border-b pb-2">Get in Tou</span>ch
           </h1>
@@ -88,10 +136,10 @@ function Contact() {
                 ID-8c8b46fdad7744c2
               </div>
               <button
-                      onClick={()=>handleCopyTextClick("8c8b46fdad7744c2")}
+                      onClick={()=>handleCopyText("skype","8c8b46fdad7744c2")}
                       className="bg-transparent rounded-lg px-4"
                     >
-                      {copied ? <FaCheck color="gray"/> : <FaCopy color="gray"/>}
+                      {copied.skype ? <FaCheck color="gray"/> : <FaCopy color="gray"/>}
                     </button>
               </div>
             </div>
@@ -107,10 +155,10 @@ function Contact() {
                 masood@cwmservices.dev
               </div>
               <button
-                      onClick={()=>handleCopyTextClickEmail("masood@cwmservices.dev")}
+                      onClick={()=>handleCopyText("email","masood@cwmservices.dev")}
                       className="bg-transparent rounded-lg px-4"
                     >
-                      {copiedEmail ? <FaCheck color="gray"/> : <FaCopy color="gray"/>}
+                      {copied.email ? <FaCheck color="gray"/> : <FaCopy color="gray"/>}
                     </button>
               </div>
             </div>
@@ -124,10 +172,10 @@ function Contact() {
                 <span className="font-bold pr-2">Phone</span>+92 3319272285
               </div>
               <button
-                      onClick={()=>handleCopyTextClickNumber("+92 3319272285")}
+                      onClick={()=>handleCopyText("phone","+92 3319272285")}
                       className="bg-transparent rounded-lg px-4"
                     >
-                      {copiedNumber ? <FaCheck color="gray"/> : <FaCopy color="gray"/>}
+                      {copied.phone ? <FaCheck color="gray"/> : <FaCopy color="gray"/>}
                     </button>
             </div>
             </div>
@@ -146,8 +194,8 @@ function Contact() {
             "
               />
             </a>
-            <a href="https://www.reddit.com/user/cwmservices" target="_blank">
-              <AiFillRedditCircle
+            <a href="https://www.youtube.com/@CodeWithMasood" target="_blank">
+              <AiFillYoutube
                 size="30"
                 className="hover:text-gray-700 cursor-pointer"
               />
@@ -160,36 +208,77 @@ function Contact() {
             </a>
           </div>
         </div>
+        <div className="lg:w-[35%]">
+          {/* Left side content (unchanged) */}
+        </div>
         <div className="lg:w-[30%] w-full lg:mt-0 mt-10 bg-white p-6 shadow-xl">
           <h3 className="py-2 font-bold text-xl text-primary">
-            Let&apos;s Connect.
+            Let's Connect.
           </h3>
-          <div className="flex flex-col justify-center items-left flex-wrap">
+          <form onSubmit={handleSubmit} className="flex flex-col justify-center items-left flex-wrap">
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               placeholder="Name"
-              className="input input-bordered my-2 w-full"
+              className={`input input-bordered my-2 w-full ${errors.name ? 'border-red-500' : ''}`}
             />
+            {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
+            
             <input
-              type="text"
-              placeholder="Email Address"
-              className="input input-bordered my-2 w-full"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Contact Email"
+              className={`input input-bordered my-2 w-full ${errors.email ? 'border-red-500' : ''}`}
             />
-            <input
-              type="text"
-              placeholder="Subject"
-              className="input input-bordered w-full my-2"
-            />
+            {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+
+            <select
+              name="requestType"
+              value={formData.requestType}
+              onChange={handleInputChange}
+              className="select select-bordered w-full my-2"
+            >
+              <option>Service Request</option>
+              <option>Career Opportunity</option>
+            </select>
+
             <textarea
-              placeholder="Your Message"
-              className="resize-none textarea textarea-bordered my-2 textarea-lg w-full"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Request Details"
+              className={`resize-none textarea textarea-bordered my-2 textarea-lg w-full ${errors.message ? 'border-red-500' : ''}`}
             ></textarea>
-            <button className="btn bg-primary hover:bg-secondory text-white">
-              Send Message
+            {errors.message && <p className="text-red-500 mb-4 text-xs">{errors.message}</p>}
+
+            <button 
+              type="submit" 
+              className="btn bg-primary hover:bg-secondary text-white"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
-          </div>
+          </form>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <div className="p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4 text-primary">Thank You!</h2>
+          <p className="mb-6 text-gray-700">
+            Your message has been sent successfully. We'll get back to you via the provided email as soon as possible.
+          </p>
+          <button
+            onClick={closeModal}
+            className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition duration-200 ease-in-out"
+          >
+            Close
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 }
