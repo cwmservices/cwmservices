@@ -19,7 +19,7 @@ function Banner() {
   }, []);
 
   return (
-    <div className="hero w-full relative bg-primary">
+    <div className="hero w-full relative dark:bg-gray-800 bg-primary">
       {/* Initially hidden video to prevent flash */}
       <video
         autoPlay
@@ -35,7 +35,7 @@ function Banner() {
       </video>
 
       {/* Yellow overlay remains at full opacity */}
-      <div className="bg-primary absolute top-0 left-0 w-full h-[550px] opacity-75"></div>
+      <div className="bg-primary dark:bg-gray-800 absolute top-0 left-0 w-full h-[550px] opacity-75"></div>
 
       <div
         style={{ maxWidth: "90%" }}

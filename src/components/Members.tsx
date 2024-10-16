@@ -21,6 +21,8 @@ function Testimonials() {
   }, []);
 
   return (
+    <div className="dark:bg-gray-800 dark:text-gray-100">
+
     <section
       className="mx-auto relative w-[90%] pt-20"
       id="scrollToTeam"
@@ -34,15 +36,15 @@ function Testimonials() {
       <div className="absolute right-0 md:pt-0 pt-4">
         <button
           onClick={() => scrollTestimonials.current.scrollBy(-340, 0)}
-          className="bg-transparent hover:bg-gray-300 border border-gray-400 rounded-full p-4"
+          className="bg-transparent hover:bg-gray-300 border border-gray-400 dark:text-white dark:hover:text-black rounded-full p-4"
         >
-          <AiFillCaretLeft color="black" size="10" />
+          <AiFillCaretLeft size="10" />
         </button>
         <button
           onClick={() => scrollTestimonials.current.scrollBy(340, 0)}
-          className="bg-transparent hover:bg-gray-300 border border-gray-400 ml-2 rounded-full p-4"
+          className="bg-transparent hover:bg-gray-300 border border-gray-400 dark:text-white dark:hover:text-black ml-2 rounded-full p-4"
         >
-          <AiFillCaretRight color="black" size="10" />
+          <AiFillCaretRight size="10" />
         </button>
       </div>
 
@@ -55,7 +57,7 @@ function Testimonials() {
             return (
               <blockquote
                 key={Member.id}
-                className="flex h-full flex-col relative shadow-lg justify-between w-[300px] md:w-[450px] bg-white pr-6 py-8 m-4"
+                className="flex h-full flex-col relative shadow-lg justify-between w-[300px] md:w-[450px] dark:bg-gray-700 dark:text-gray-200 bg-white pr-6 py-8 m-4"
               >
                 <div className="mt-4 flex w-[300px] md:w-[450px] justify-center items-center flex-col">
           {Member.name === "Masood" && (
@@ -94,6 +96,8 @@ function Testimonials() {
         </div>
       </div>
     </section>
+    </div>
+
   );
 }
 

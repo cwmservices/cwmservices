@@ -14,7 +14,7 @@ const MessageModal = ({ isOpen, onClose }) => {
   const fileInputRef = useRef(null);
   const messageBox = useRef(null);
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event:any) => {
     if (messageBox.current && !messageBox.current.contains(event.target)) {
       onClose();
     }
@@ -101,12 +101,12 @@ const MessageModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div ref={messageBox} className="bg-white rounded-lg shadow-xl md:w-[450px] w-[96%] max-h-[90vh] flex flex-col">
+      <div ref={messageBox} className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-xl md:w-[450px] w-[96%] max-h-[90vh] flex flex-col">
         {!isSuccess ? (
           <>
             <div className="flex justify-between items-center p-4 border-b border-gray-200">
               <div className="flex items-center">
-                <img src="/cwmlogo.png" alt="Logo" className="w-8 h-8 mr-2" />
+                <img src="/cwmlogo.png" alt="Logo" className="w-8 rounded-full h-8 mr-2" />
                 <h2 className="text-lg font-semibold">Message Masood U.</h2>
               </div>
               <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
@@ -121,14 +121,14 @@ const MessageModal = ({ isOpen, onClose }) => {
                   placeholder="Contact Email"
                   value={email}
                   onChange={handleEmailChange}
-                  className={`w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                  className={`w-full p-2 border dark:bg-gray-800 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     emailError ? 'border-red-500' : 'border-gray-300'
                   }`}
                 />
                 {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>}
               </div>
               <textarea
-                className={`${message.length < 40 ? 'border-red-500' : 'border-gray-300'} w-full h-32 p-2 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out`}
+                className={`dark:bg-gray-800 ${message.length < 40 ? 'border-red-500' : 'border-gray-300'} w-full h-32 p-2 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out`}
                 placeholder="Ask Masood U. a question or share your project details (requirements, timeline, budget, etc.)"
                 value={message}
                 onChange={handleMessageChange}
@@ -143,7 +143,7 @@ const MessageModal = ({ isOpen, onClose }) => {
                   <button
                     key={index}
                     onClick={() => handleQuickReply(reply)}
-                    className="text-sm border border-gray-400 text-start rounded-full hover:bg-gray-100 px-3 py-2 mr-2 my-2 transition duration-200 ease-in-out"
+                    className="text-sm border border-gray-400 text-start rounded-full dark:hover:bg-gray-900 hover:bg-gray-100 px-3 py-2 mr-2 my-2 transition duration-200 ease-in-out"
                   >
                     {reply}
                   </button>

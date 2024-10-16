@@ -106,8 +106,8 @@ function Contact() {
   };
 
   return (
-    <div className="bg-light" id="scrollToContact">
-      <div className="w-[90%] mt-2 py-20 mx-auto flex justify-around items-start flex-wrap">
+    <div className="bg-light dark:bg-gray-800 dark:text-gray-100" id="scrollToContact">
+      <div className="w-[90%] dark:mt-0 mt-2 py-20 mx-auto flex justify-around items-start flex-wrap">
       <div className="lg:w-[35%]">
           <h1 className="text-primary font-primary font-bold text-2xl lg:text-5xl">
             <span className="border-b pb-2">Get in Tou</span>ch
@@ -190,20 +190,20 @@ function Contact() {
             >
               <MdFacebook
                 size="32"
-                className="hover:text-gray-700 cursor-pointer
+                className="hover:text-gray-700 dark:text-gray-200 dark:hover:text-white cursor-pointer
             "
               />
             </a>
             <a href="https://www.youtube.com/@CodeWithMasood" target="_blank">
               <AiFillYoutube
                 size="30"
-                className="hover:text-gray-700 cursor-pointer"
+                className="hover:text-gray-700 dark:text-gray-200 dark:hover:text-white cursor-pointer"
               />
             </a>
             <a href="https://www.linkedin.com/in/cwmservices" target="_blank">
               <AiFillLinkedin
                 size="30"
-                className="hover:text-gray-700 cursor-pointer"
+                className="hover:text-gray-700 dark:text-gray-200 dark:hover:text-white cursor-pointer"
               />
             </a>
           </div>
@@ -211,7 +211,7 @@ function Contact() {
         <div className="lg:w-[35%]">
           {/* Left side content (unchanged) */}
         </div>
-        <div className="lg:w-[30%] w-full lg:mt-0 mt-10 bg-white p-6 shadow-xl">
+        <div className="lg:w-[30%] w-full lg:mt-0 mt-10 dark:bg-gray-700 dark:text-gray-100 bg-white p-6 shadow-xl">
           <h3 className="py-2 font-bold text-xl text-primary">
             Let's Connect.
           </h3>
@@ -222,7 +222,7 @@ function Contact() {
               value={formData.name}
               onChange={handleInputChange}
               placeholder="Name"
-              className={`input input-bordered my-2 w-full ${errors.name ? 'border-red-500' : ''}`}
+              className={`input dark:bg-gray-800 input-bordered my-2 w-full ${errors.name ? 'border-red-500' : ''}`}
             />
             {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
             
@@ -232,7 +232,7 @@ function Contact() {
               value={formData.email}
               onChange={handleInputChange}
               placeholder="Contact Email"
-              className={`input input-bordered my-2 w-full ${errors.email ? 'border-red-500' : ''}`}
+              className={`input dark:bg-gray-800 input-bordered my-2 w-full ${errors.email ? 'border-red-500' : ''}`}
             />
             {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
 
@@ -240,7 +240,7 @@ function Contact() {
               name="requestType"
               value={formData.requestType}
               onChange={handleInputChange}
-              className="select select-bordered w-full my-2"
+              className="select dark:bg-gray-800 select-bordered w-full my-2"
             >
               <option>Service Request</option>
               <option>Career Opportunity</option>
@@ -251,13 +251,13 @@ function Contact() {
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Request Details"
-              className={`resize-none textarea textarea-bordered my-2 textarea-lg w-full ${errors.message ? 'border-red-500' : ''}`}
+              className={`resize-none dark:bg-gray-800 textarea textarea-bordered my-2 textarea-lg w-full ${errors.message ? 'border-red-500' : ''}`}
             ></textarea>
             {errors.message && <p className="text-red-500 mb-4 text-xs">{errors.message}</p>}
 
             <button 
               type="submit" 
-              className="btn bg-primary hover:bg-secondary text-white"
+              className="btn bg-primary hover:bg-yellow-700 text-white"
               disabled={isSubmitting}
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}

@@ -24,14 +24,14 @@ function ProjectSidebar({ project, onClose }: any) {
       <div
         style={{ zIndex: 999 }}
         id="project-sidebar"
-        className="fixed top-0 right-0 h-full w-full md:w-1/4 bg-light text-dark overflow-y-scroll overflow-x-hidden"
+        className="fixed top-0 right-0 h-full w-full md:w-1/4 dark:bg-gray-900 dark:text-gray-100 bg-light text-dark overflow-y-scroll overflow-x-hidden"
       >
         {/* Drawer content */}
         <div className="p-6">
           <div className="flex justify-between items-center w-full border-b border-b-gray-300 pb-3">
             <div onClick={onClose} className="cursor-pointer">
               <Image
-                className="opacity-70"
+                className="opacity-70 dark:brightness-100 dark:invert"
                 src="/back-button.png"
                 width={25}
                 height={25}
@@ -61,7 +61,7 @@ function ProjectSidebar({ project, onClose }: any) {
             style={{ objectFit: "cover", objectPosition: "top" }}
           />
           <h3 className="text-xl font-semibold pb-2">About</h3>
-          <p className="text-dark">{project.description}</p>
+          <p className="text-dark dark:text-gray-200">{project.description}</p>
           <h3 className="text-xl font-semibold pb-2 pt-3">Technologies</h3>
           {project.skills.map((skill: any) => {
             return (
@@ -74,7 +74,7 @@ function ProjectSidebar({ project, onClose }: any) {
             );
           })}
           <div className="mt-4  flex justify-start flex-col">
-            <div className="flex items-center font-bold text-dark">
+            <div className="flex items-center font-bold dark:text-gray-100 text-dark">
               <Image
                 src="/earth.png"
                 alt="website icon"
@@ -86,7 +86,7 @@ function ProjectSidebar({ project, onClose }: any) {
             <a
               href={project.demo}
               target="_blank"
-              className="text-dark hover:text-blue-500 underline pb-2"
+              className="text-dark hover:text-blue-500 underline pb-2 dark:text-gray-100 dark:hover:text-blue-500"
             >
               {project.demo}
             </a>

@@ -53,7 +53,7 @@ function Projects() {
   };
 
   return (
-    <div id="scrollToProjects">
+    <div id="scrollToProjects" className="dark:bg-gray-800 dark:text-gray-100">
       <h1 className="text-center text-3xl lg:text-5xl pt-10 font-primary font-bold text-primary">
         Some of our finest work.
       </h1>
@@ -152,7 +152,7 @@ function Projects() {
 
       {/* Load More Button */}
       {visibleProjects < filteredProjects.length && (
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center py-6">
           <button
             onClick={loadMoreProjects}
             className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-gray-200 hover:text-black transition duration-300"

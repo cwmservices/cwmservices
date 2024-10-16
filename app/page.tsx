@@ -16,7 +16,6 @@ import {ClipLoader} from 'react-spinners';
 export default function Home() {
 
   const [projects, setProjects] = useState([]);
-
   const [loading, setLoading] = useState(true);
 
   const fetchProjects = async () => {
@@ -31,9 +30,26 @@ export default function Home() {
     fetchProjects();
   }, []);
 
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    setIsDark(isDarkMode);
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newIsDark = !isDark;
+    setIsDark(newIsDark);
+    localStorage.setItem('darkMode', newIsDark.toString());
+    document.documentElement.classList.toggle('dark');
+  };
+
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-primary">
+      <div className="flex items-center justify-center h-screen dark:bg-gray-800 bg-primary">
         <div className="text-center flex justify-center items-center flex-col">
           <img src="/cwmlogo.png" alt="logo" width="100px" height="100px" className="object-cover rounded-full"/>
           <div className="mt-4 text-white text-xl font-bold animate-bounce">
@@ -53,7 +69,7 @@ export default function Home() {
       <Testimonials />
       <Members />
       <Contact />
-      <div className="pb-4 pl-3 fixed bg-transparent bottom-3 left-5 inline-block">
+      <div className="pb-4 pl-3 fixed bg-transparent bottom-5 left-4 inline-block">
         <Link
           target="_blank"
           href="https://api.whatsapp.com/send/?phone=923319272285&text&type=phone_number&app_absent=0"
@@ -67,6 +83,12 @@ export default function Home() {
           />
         </Link>
       </div>
+      <button
+      onClick={toggleTheme}
+      className="p-2 rounded-full absolute top-[18px] right-44 lg:right-56 bg-gray-200 dark:bg-gray-600 transition-colors duration-200"
+    >
+      {isDark ? '🌞' : '🌙'}
+    </button>
       <Footer />
     </main>
   );

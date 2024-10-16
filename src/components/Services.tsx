@@ -9,9 +9,9 @@ function Services() {
     element?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div>
+    <div className="dark:bg-gray-800 dark:text-gray-100">
       <div
-        className="w-full flex justify-center items-center my-12 filter brightness-50 cursor-pointer"
+        className="w-full flex justify-center items-center py-12 filter brightness-50 cursor-pointer"
         onClick={scrollToHeading}
       >
         <Image
@@ -33,7 +33,7 @@ function Services() {
       </p>
 
       {/* cards section with 1 flex container and 3 card items */}
-      <div className="flex justify-center lg:justify-between my-10 items-center w-[90%] flex-wrap mx-auto">
+      <div className="flex justify-center lg:justify-between py-10 items-center w-[90%] flex-wrap mx-auto">
         <div className="card w-96 bg-base-100 shadow-xl my-4">
           <figure>
             <Image
@@ -43,7 +43,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               Web Development
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -72,7 +72,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               Mobile App Development
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -98,7 +98,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               UI/UX
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -122,7 +122,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               WordPress
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -150,7 +150,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               Coaching
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -177,7 +177,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               Collaboration
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">

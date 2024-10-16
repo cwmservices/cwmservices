@@ -20,6 +20,8 @@ function Testimonials() {
   }, []);
 
   return (
+    <div className="dark:bg-gray-800 dark:text-gray-100">
+
     <section
       className="mx-auto relative w-[90%] pt-20"
       id="scrollToTestimonials"
@@ -33,15 +35,15 @@ function Testimonials() {
       <div className="absolute right-0 md:pt-0 pt-4">
         <button
           onClick={() => scrollTestimonials.current.scrollBy(-340, 0)}
-          className="bg-transparent hover:bg-gray-300 border border-gray-400 rounded-full p-4"
+          className="bg-transparent hover:bg-gray-300 border border-gray-400 dark:text-white dark:hover:text-black rounded-full p-4"
         >
-          <AiFillCaretLeft color="black" size="10" />
+          <AiFillCaretLeft size="10" />
         </button>
         <button
           onClick={() => scrollTestimonials.current.scrollBy(340, 0)}
-          className="bg-transparent hover:bg-gray-300 border border-gray-400 ml-2 rounded-full p-4"
+          className="bg-transparent hover:bg-gray-300 border border-gray-400 dark:text-white dark:hover:text-black ml-2 rounded-full p-4"
         >
-          <AiFillCaretRight color="black" size="10" />
+          <AiFillCaretRight size="10" />
         </button>
       </div>
 
@@ -54,7 +56,7 @@ function Testimonials() {
             return (
               <blockquote
                 key={Testimonial.id}
-                className="flex h-full flex-col relative shadow-lg justify-between w-[300px] md:w-[450px] bg-white px-6 py-8 m-4"
+                className="flex h-full flex-col relative shadow-lg justify-between w-[300px] md:w-[450px] dark:bg-gray-700 dark:text-gray-200 bg-white px-6 py-8 m-4"
               >
                 <div className="flex justify-center opacity-80 items-center absolute top-4 right-4">
                   <img src={Testimonial.origin} alt="origin" className="w-[50px] md:w-[70px] object-contain md:h-[30px]" />
@@ -79,14 +81,14 @@ function Testimonials() {
                   </div>
 
                   <div className="mt-4">
-  <p className="mt-4 w-[280px] md:w-[400px] text-gray-700 break-words whitespace-normal">
+  <p className="mt-4 w-[280px] md:w-[400px] dark:text-gray-100 text-gray-700 break-words whitespace-normal">
     {Testimonial.testimonial}
   </p>
 </div>
 
                 </div>
 
-                <footer className="mt-4 text-sm font-medium flex justify-start items-center text-gray-700 sm:mt-6">
+                <footer className="mt-4 text-sm font-medium flex justify-start items-center text-gray-700 dark:text-gray-100 sm:mt-6">
                   <span>&mdash; {Testimonial.name}</span> <img src={Testimonial.country} alt="Country flag" className="w-6 object-contain ml-2 h-6" />
                 </footer>
               </blockquote>
@@ -95,6 +97,8 @@ function Testimonials() {
         </div>
       </div>
     </section>
+    </div>
+
   );
 }
 

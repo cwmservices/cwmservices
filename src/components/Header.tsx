@@ -38,12 +38,14 @@ function Header() {
   }
 
   return (
-    <div className="navbar bg-base-100 w-[90%] mx-auto">
+    <div className="bg-base-100 dark:bg-gray-800">
+
+    <div className="navbar w-[90%] mx-auto">
       <div className="navbar-start">
         <div className="dropdownbutton" ref={toggleButtonRef} onClick={toggleNavbar}>
           <div
             tabIndex={0}
-            className="btn btn-ghost bg-slate-100 lg:hidden md:mr-0 mr-4"
+            className="btn btn-ghost bg-slate-100 dark:text-white text-gray-600 dark:bg-gray-600 dark:hover:bg-gray-700 lg:hidden md:mr-0 mr-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,58 +64,66 @@ function Header() {
           </div>
           <ul
             style={{ position: "absolute",paddingLeft:"30px",paddingRight:"30px", left:0,top: 51 }}
-            className={`menu menu-sm w-full mt-3 z-[999] py-2 shadow bg-base-100 rounded-sm md:hidden ${
+            className={`menu menu-sm dark:text-white w-full mt-4 z-[999] py-2 shadow dark:bg-gray-800 bg-base-100 rounded-sm md:hidden ${
               navbar ? "block" : "hidden"
             }`}
             ref={mobileNavbar}
           >
             <li onClick={() => handleMenuItemClick("scrollToHome")}>
-              <a className="py-2 text-lg font-secondary">Home</a>
+              <a className="py-2 dark:hover:bg-gray-100 text-lg font-secondary">Home</a>
             </li>
             <li onClick={() => handleMenuItemClick("scrollToServices")}>
-              <a className="py-2 text-lg font-secondary">Services</a>
+              <a className="py-2 dark:hover:bg-gray-100 text-lg font-secondary">Services</a>
             </li>
             <li onClick={() => handleMenuItemClick("scrollToProjects")}>
-              <a className="py-2 text-lg font-secondary">Projects</a>
+              <a className="py-2 dark:hover:bg-gray-100 text-lg font-secondary">Projects</a>
             </li>
             <li onClick={() => handleMenuItemClick("scrollToTestimonials")}>
-              <a className="py-2 text-lg font-secondary">Testimonials</a>
+              <a className="py-2 dark:hover:bg-gray-100 text-lg font-secondary">Testimonials</a>
             </li>
             <li onClick={() => handleMenuItemClick("scrollToTeam")}>
-              <a className="py-2 text-lg font-secondary">Team</a>
+              <a className="py-2 dark:hover:bg-gray-100 text-lg font-secondary">Team</a>
             </li>
             <li onClick={() => handleMenuItemClick("scrollToContact")}>
-              <a className="py-2 text-lg font-secondary">Contact</a>
+              <a className="py-2 dark:hover:bg-gray-100 text-lg font-secondary">Contact</a>
             </li>
           </ul>
         </div>
         <Image
-          src="/cwm.png"
-          className="md:pr-0 pr-3"
+          src="/cwmlogo.png"
+          className="rounded-full dark:hidden block"
           alt="logo"
-          width={100}
-          height={39}
+          width={55}
+          height={55}
+        />
+        
+        <Image
+          src="/cwmlogo.png"
+          className="rounded-full dark:block hidden"
+          alt="logo"
+          width={55}
+          height={55}
         />
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center dark:text-white hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-lg font-secondary">
-          <li onClick={() => handleMenuItemClick("scrollToHome")}>
+          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToHome")}>
             <a>Home</a>
           </li>
 
-          <li onClick={() => handleMenuItemClick("scrollToServices")}>
+          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToServices")}>
             <a>Services</a>
           </li>
-          <li onClick={() => handleMenuItemClick("scrollToProjects")}>
+          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToProjects")}>
             <a>Projects</a>
           </li>
-          <li onClick={() => handleMenuItemClick("scrollToTestimonials")}>
+          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToTestimonials")}>
             <a>Testimonials</a>
           </li>
-          <li onClick={() => handleMenuItemClick("scrollToTeam")}>
+          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToTeam")}>
             <a className="py-2 text-lg font-secondary">Team</a>
           </li>
-          <li onClick={() => handleMenuItemClick("scrollToContact")}>
+          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToContact")}>
             <a>Contact</a>
           </li>
         </ul>
@@ -132,6 +142,8 @@ function Header() {
         onClose={() => setIsModalOpen(false)}
       />
     </div>
+    </div>
+
   );
 }
 

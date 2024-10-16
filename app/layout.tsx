@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -16,7 +17,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "cwmservices",
+  title: "Cwmservices | Software Development Services",
   description:
     "Developing Professional Web and Mobile Applications Using Modern Technologies i.e React, Node, Tailwind CSS and Next.js",
 };
