@@ -101,7 +101,6 @@ function ProjectSidebar({ project, onClose }: any) {
           </div>
         </div>
 
-        {/* Open Project Button */}
         <div className="sticky w-full bottom-0">
           <a target="_blank" href={project.demo}>
             <button className="w-full bg-dark text-light py-2 flex justify-center items-center hover:bg-gray-800">
