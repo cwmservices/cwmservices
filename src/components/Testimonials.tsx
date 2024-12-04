@@ -20,7 +20,7 @@ function Testimonials() {
   }, []);
 
   return (
-    <div className="dark:bg-gray-800 dark:text-gray-100">
+    <div className="dark:bg-gray-800 bg-gray-100 dark:text-gray-100">
 
     <section
       className="mx-auto relative w-[90%] pt-20"
@@ -38,7 +38,7 @@ function Testimonials() {
           className="bg-transparent hover:bg-gray-300 border border-gray-400 dark:text-white dark:hover:text-black rounded-full p-4"
         >
           <AiFillCaretLeft size="10" />
-        </button>
+        </button> 
         <button
           onClick={() => scrollTestimonials.current.scrollBy(340, 0)}
           className="bg-transparent hover:bg-gray-300 border border-gray-400 dark:text-white dark:hover:text-black ml-2 rounded-full p-4"

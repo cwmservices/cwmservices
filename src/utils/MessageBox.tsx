@@ -121,14 +121,14 @@ const MessageModal = ({ isOpen, onClose }) => {
                   placeholder="Contact Email"
                   value={email}
                   onChange={handleEmailChange}
-                  className={`w-full p-2 border dark:bg-gray-800 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                  className={`w-full p-2 border bg-gray-100 dark:bg-gray-800 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     emailError ? 'border-red-500' : 'border-gray-300'
                   }`}
                 />
                 {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>}
               </div>
               <textarea
-                className={`dark:bg-gray-800 ${message.length < 40 ? 'border-red-500' : 'border-gray-300'} w-full h-32 p-2 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out`}
+                className={`dark:bg-gray-800 bg-gray-100 ${message.length < 40 ? 'border-red-500' : 'border-gray-300'} w-full h-32 p-2 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out`}
                 placeholder="Ask Masood U. a question or share your project details (requirements, timeline, budget, etc.)"
                 value={message}
                 onChange={handleMessageChange}

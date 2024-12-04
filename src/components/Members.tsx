@@ -21,7 +21,7 @@ function Testimonials() {
   }, []);
 
   return (
-    <div className="dark:bg-gray-800 dark:text-gray-100">
+    <div className="dark:bg-gray-800 bg-gray-100 dark:text-gray-100">
 
     <section
       className="mx-auto relative w-[90%] pt-20"

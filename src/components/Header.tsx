@@ -38,7 +38,7 @@ function Header() {
   }
 
   return (
-    <div className="bg-base-100 dark:bg-gray-800">
+    <div className="bg-gray-100 dark:bg-gray-800">
 
     <div className="navbar w-[90%] mx-auto">
       <div className="navbar-start">
@@ -64,7 +64,7 @@ function Header() {
           </div>
           <ul
             style={{ position: "absolute",paddingLeft:"30px",paddingRight:"30px", left:0,top: 51 }}
-            className={`menu menu-sm dark:text-white w-full mt-4 z-[999] py-2 shadow dark:bg-gray-800 bg-base-100 rounded-sm md:hidden ${
+            className={`menu menu-sm dark:text-white w-full mt-4 z-[999] py-2 shadow bg-gray-100 dark:bg-gray-800 rounded-sm md:hidden ${
               navbar ? "block" : "hidden"
             }`}
             ref={mobileNavbar}
@@ -105,25 +105,25 @@ function Header() {
           height={55}
         />
       </div>
-      <div className="navbar-center dark:text-white hidden lg:flex">
+      <div className="navbar-center text-black dark:text-white hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-lg font-secondary">
-          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToHome")}>
+          <li className="dark:hover:bg-gray-700 hover:bg-gray-100 rounded-xl dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToHome")}>
             <a>Home</a>
           </li>
 
-          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToServices")}>
+          <li className="dark:hover:bg-gray-700 hover:bg-gray-100 dark:rounded-xl rounded-xl" onClick={() => handleMenuItemClick("scrollToServices")}>
             <a>Services</a>
           </li>
-          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToProjects")}>
+          <li className="dark:hover:bg-gray-700 dark:rounded-xl hover:bg-gray-100 rounded-xl" onClick={() => handleMenuItemClick("scrollToProjects")}>
             <a>Projects</a>
           </li>
-          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToTestimonials")}>
+          <li className="dark:hover:bg-gray-700 dark:rounded-xl hover:bg-gray-100 rounded-xl" onClick={() => handleMenuItemClick("scrollToTestimonials")}>
             <a>Testimonials</a>
           </li>
-          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToTeam")}>
+          <li className="dark:hover:bg-gray-700 hover:bg-gray-100 dark:rounded-xl rounded-xl" onClick={() => handleMenuItemClick("scrollToTeam")}>
             <a className="py-2 text-lg font-secondary">Team</a>
           </li>
-          <li className="dark:hover:bg-white dark:rounded-xl" onClick={() => handleMenuItemClick("scrollToContact")}>
+          <li className="dark:hover:bg-gray-700 dark:rounded-xl hover:bg-gray-100 rounded-xl" onClick={() => handleMenuItemClick("scrollToContact")}>
             <a>Contact</a>
           </li>
         </ul>

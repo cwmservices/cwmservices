@@ -9,7 +9,7 @@ function Services() {
     element?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className="dark:bg-gray-800 dark:text-gray-100">
+    <div className="dark:bg-gray-800 bg-gray-100 dark:text-gray-100">
       <div
         className="w-full flex justify-center items-center py-12 filter brightness-50 cursor-pointer"
         onClick={scrollToHeading}
@@ -34,7 +34,7 @@ function Services() {
 
       {/* cards section with 1 flex container and 3 card items */}
       <div className="flex justify-center lg:justify-between py-10 items-center w-[90%] flex-wrap mx-auto">
-        <div className="card w-96 bg-base-100 shadow-xl my-4">
+        <div className="card w-96 shadow-xl my-4">
           <figure>
             <Image
               src="/webdev.jpg"
@@ -43,7 +43,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
+          <div className="card-body rounded-b-xl dark:bg-gray-700 bg-white dark:text-white">
             <h2 className="card-title">
               Web Development
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -63,7 +63,7 @@ function Services() {
           </div>
         </div>
 
-        <div className="card w-96 bg-base-100 shadow-xl my-4">
+        <div className="card w-96 shadow-xl my-4">
           <figure>
             <Image
               src="/appdev.jpg"
@@ -72,7 +72,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
+          <div className="card-body bg-white rounded-b-xl dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               Mobile App Development
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -89,7 +89,7 @@ function Services() {
           </div>
         </div>
 
-        <div className="card w-96 bg-base-100 shadow-xl my-4">
+        <div className="card w-96 shadow-xl my-4">
           <figure>
             <Image
               src="/uiux.jpg"
@@ -98,7 +98,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
+          <div className="card-body rounded-b-xl bg-white dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               UI/UX
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -113,7 +113,7 @@ function Services() {
           </div>
         </div>
 
-        <div className="card w-96 bg-base-100 shadow-xl my-4">
+        <div className="card w-96 shadow-xl my-4">
           <figure>
             <Image
               src="/wordpress.jpg"
@@ -122,7 +122,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
+          <div className="card-body rounded-b-xl bg-white dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               WordPress
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -141,7 +141,7 @@ function Services() {
           </div>
         </div>
 
-        <div className="card w-96 bg-base-100 shadow-xl my-4">
+        <div className="card w-96 shadow-xl my-4">
           <figure>
             <Image
               src="/coaching.jpg"
@@ -150,7 +150,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
+          <div className="card-body bg-white rounded-b-xl dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               Coaching
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">
@@ -168,7 +168,7 @@ function Services() {
           </div>
         </div>
 
-        <div className="card w-96 bg-base-100 shadow-xl my-4">
+        <div className="card w-96 shadow-xl my-4">
           <figure>
             <Image
               src="/collaboration.jpg"
@@ -177,7 +177,7 @@ function Services() {
               height={500}
             />
           </figure>
-          <div className="card-body rounded-b-xl dark:bg-gray-700 dark:text-white">
+          <div className="card-body bg-white rounded-b-xl dark:bg-gray-700 dark:text-white">
             <h2 className="card-title">
               Collaboration
               <div className="badge badge-secondary text-white bg-orange-500 border-orange-400">

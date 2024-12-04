@@ -53,7 +53,7 @@ function Projects() {
   };
 
   return (
-    <div id="scrollToProjects" className="dark:bg-gray-800 dark:text-gray-100">
+    <div id="scrollToProjects" className="dark:bg-gray-800 bg-gray-100 dark:text-gray-100">
       <h1 className="text-center text-3xl lg:text-5xl pt-10 font-primary font-bold text-primary">
         Some of our finest work.
       </h1>
@@ -63,31 +63,31 @@ function Projects() {
       {/* tabs */}
       <div className="tabs flex justify-center items-center mt-10 bg-transparent tabs-boxed">
         <a
-          className={`tab ${activeCategory === "ALL" && "tab-active"} font-secondory m-1 text-lg bg-gray-100`}
+          className={`tab ${activeCategory === "ALL" && "tab-active"} font-secondory m-1 text-lg dark:text-white dark:bg-gray-700 bg-gray-200`}
           onClick={() => filterProjects("ALL")}
         >
           ALL
         </a>
         <a
-          className={`tab m-1 font-secondory bg-gray-100 ${activeCategory === "MOBILE" && "tab-active"} text-lg`}
+          className={`tab m-1 font-secondory bg-gray-200 dark:text-white dark:bg-gray-700 ${activeCategory === "MOBILE" && "tab-active"} text-lg`}
           onClick={() => filterProjects("MOBILE")}
         >
           Mobile Apps
         </a>
         <a
-          className={`tab m-1 font-secondory text-lg bg-gray-100 ${activeCategory === "WEB" && "tab-active"}`}
+          className={`tab m-1 font-secondory text-lg dark:text-white dark:bg-gray-700 bg-gray-200 ${activeCategory === "WEB" && "tab-active"}`}
           onClick={() => filterProjects("WEB")}
         >
           Web Apps
         </a>
         <a
-          className={`tab m-1 font-secondory bg-gray-100 ${activeCategory === "UI/UX" && "tab-active"} text-lg`}
+          className={`tab m-1 font-secondory bg-gray-200 dark:text-white dark:bg-gray-700 ${activeCategory === "UI/UX" && "tab-active"} text-lg`}
           onClick={() => filterProjects("UI/UX")}
         >
           UI/UX
         </a>
         <a
-          className={`tab m-1 font-secondory bg-gray-100 ${activeCategory === "WORDPRESS" && "tab-active"} text-lg`}
+          className={`tab m-1 font-secondory dark:text-white dark:bg-gray-700 bg-gray-200 ${activeCategory === "WORDPRESS" && "tab-active"} text-lg`}
           onClick={() => filterProjects("WORDPRESS")}
         >
           Wordpress

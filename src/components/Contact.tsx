@@ -106,8 +106,8 @@ function Contact() {
   };
 
   return (
-    <div className="bg-light dark:bg-gray-800 dark:text-gray-100" id="scrollToContact">
-      <div className="w-[90%] dark:mt-0 mt-2 py-20 mx-auto flex justify-around items-start flex-wrap">
+    <div className="bg-gray-100 dark:bg-gray-800 dark:text-gray-100" id="scrollToContact">
+      <div className="w-[90%] dark:mt-0 pt-2 py-20 mx-auto flex justify-start items-start flex-wrap">
       <div className="lg:w-[35%]">
           <h1 className="text-primary font-primary font-bold text-2xl lg:text-5xl">
             <span className="border-b pb-2">Get in Tou</span>ch
@@ -208,10 +208,7 @@ function Contact() {
             </a>
           </div>
         </div>
-        <div className="lg:w-[35%]">
-          {/* Left side content (unchanged) */}
-        </div>
-        <div className="lg:w-[30%] w-full lg:mt-0 mt-10 dark:bg-gray-700 dark:text-gray-100 bg-white p-6 shadow-xl">
+        <div className="lg:w-[30%] lg:ml-[200px] w-full lg:mt-0 mt-10 dark:bg-gray-700 dark:text-gray-100 bg-white p-6 shadow-xl">
           <h3 className="py-2 font-bold text-xl text-primary">
             Let's Connect.
           </h3>
@@ -222,7 +219,7 @@ function Contact() {
               value={formData.name}
               onChange={handleInputChange}
               placeholder="Name"
-              className={`input dark:bg-gray-800 input-bordered my-2 w-full ${errors.name ? 'border-red-500' : ''}`}
+              className={`input bg-gray-100 dark:bg-gray-800 input-bordered my-2 w-full ${errors.name ? 'border-red-500' : ''}`}
             />
             {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
             
@@ -232,7 +229,7 @@ function Contact() {
               value={formData.email}
               onChange={handleInputChange}
               placeholder="Contact Email"
-              className={`input dark:bg-gray-800 input-bordered my-2 w-full ${errors.email ? 'border-red-500' : ''}`}
+              className={`input bg-gray-100 dark:bg-gray-800 input-bordered my-2 w-full ${errors.email ? 'border-red-500' : ''}`}
             />
             {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
 
@@ -240,7 +237,7 @@ function Contact() {
               name="requestType"
               value={formData.requestType}
               onChange={handleInputChange}
-              className="select dark:bg-gray-800 select-bordered w-full my-2"
+              className="select dark:bg-gray-800 bg-gray-100 select-bordered w-full my-2"
             >
               <option>Service Request</option>
               <option>Career Opportunity</option>
@@ -251,7 +248,7 @@ function Contact() {
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Request Details"
-              className={`resize-none dark:bg-gray-800 textarea textarea-bordered my-2 textarea-lg w-full ${errors.message ? 'border-red-500' : ''}`}
+              className={`resize-none dark:bg-gray-800 bg-gray-100 textarea textarea-bordered my-2 textarea-lg w-full ${errors.message ? 'border-red-500' : ''}`}
             ></textarea>
             {errors.message && <p className="text-red-500 mb-4 text-xs">{errors.message}</p>}
 
