@@ -113,7 +113,7 @@ const MessageModal = ({ isOpen, onClose }) => {
                 <X size={20} />
               </button>
             </div>
-            
+            {/*  */}
             <div className="flex-grow p-4 overflow-y-auto">
               <div className="mb-4">
                 <input
