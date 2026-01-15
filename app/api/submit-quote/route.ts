@@ -96,7 +96,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // HTML email template for admin notification
+    // HTML email template for admin notificationkljkl
     const adminEmailHTML = `
     <!DOCTYPE html>
     <html lang="en">
