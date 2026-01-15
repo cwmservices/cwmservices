@@ -35,7 +35,7 @@ const ScrollToTopButton = () => {
     <button
       onClick={handleClick}
       className={`fixed right-4 bottom-4 p-2 bg-light transition-colors ${
-        showButton ? "bg-primary hover:bg-orange-700" : "hidden"
+        showButton ? "bg-primary opacity-90 hover:opacity-100" : "hidden"
       }`}
     >
       <FaChevronUp size="20" className="text-white" />

@@ -1,104 +1,92 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { AiFillCaretLeft, AiFillCaretRight, AiFillStar } from "react-icons/ai";
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { FaDotCircle } from "react-icons/fa";
 
-function Testimonials() {
-  const [testimonials, setTestimonials] = useState([]);
-  const scrollTestimonials: any = useRef();
+function Members() {
+  const [members, setMembers] = useState([]);
+  const scrollMembers: any = useRef();
 
-  const fetchProjects = async () => {
-    const testimonialsJSON = await fetch(
-      "https://www.cwmservices.dev/api/portfolio"
-    );
-    const testimonialsData = await testimonialsJSON.json();
-    setTestimonials(testimonialsData.Members);
+  const fetchMembers = async () => {
+    const membersJSON = await fetch("http://localhost:3000/api/portfolio");
+    const membersData = await membersJSON.json();
+    setMembers(membersData.Members);
   };
 
   useEffect(() => {
-    fetchProjects();
+    fetchMembers();
   }, []);
 
   return (
-    <div className="dark:bg-gray-800 bg-gray-100 dark:text-gray-100">
+    <div className="dark:bg-gray-800 bg-gray-100 py-16">
+      <section className="mx-auto relative w-[90%]" id="scrollToTeam">
+        <h2 className="md:text-5xl text-3xl pb-2 font-bold tracking-tight text-primary sm:text-5xl text-center">
+          Whom<span className="border-b pb-4 px-3 border-orange-400">We</span> Work
+        </h2>
+        <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-gray-600 dark:text-gray-300">
+          Our Aspiring Members
+        </p>
 
-    <section
-      className="mx-auto relative w-[90%] pt-20"
-      id="scrollToTeam"
-    >
-      <h2 className="md:text-5xl text-3xl pb-2 font-bold tracking-tight text-primary sm:text-5xl text-center">
-        Whom<span className="border-b pb-4 px-3">We</span>Work
-      </h2>
-      <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10">
-        Our Aspiring Members
-      </p>
-      <div className="absolute right-0 md:pt-0 pt-4">
-        <button
-          onClick={() => scrollTestimonials.current.scrollBy(-340, 0)}
-          className="bg-transparent hover:bg-gray-300 border border-gray-400 dark:text-white dark:hover:text-black rounded-full p-4"
-        >
-          <AiFillCaretLeft size="10" />
-        </button>
-        <button
-          onClick={() => scrollTestimonials.current.scrollBy(340, 0)}
-          className="bg-transparent hover:bg-gray-300 border border-gray-400 dark:text-white dark:hover:text-black ml-2 rounded-full p-4"
-        >
-          <AiFillCaretRight size="10" />
-        </button>
-      </div>
 
-      <div className="flex lg:flex-nowrap md:mt-14 mt-12 flex-wrap justify-center items-center">
-        <div
-          ref={scrollTestimonials}
-          className="overflow-hidden md:w-auto w-[300px] flex justify-between items-center pb-10 h-full scrollbar-hide whitespace-nowrap scroll-smooth"
-        >
-          {testimonials.map((Member: any) => {
-            return (
+        <div className="flex relative lg:flex-nowrap md:mt-14 mt-12 flex-wrap justify-center items-center">
+           <div className="absolute right-0 -top-16 flex flex-row gap-2 z-40">
+          <button
+            onClick={() => scrollMembers.current.scrollBy({ left: -340, behavior: "smooth" })}
+            className="bg-white dark:bg-gray-700 hover:scale-110 transition-transform duration-300 shadow-lg rounded-full p-4 flex items-center justify-center"
+          >
+            <AiFillCaretLeft size={20} className="text-orange-500 dark:text-white" />
+          </button>
+          <button
+            onClick={() => scrollMembers.current.scrollBy({ left: 340, behavior: "smooth" })}
+            className="bg-white dark:bg-gray-700 hover:scale-110 transition-transform duration-300 shadow-lg rounded-full p-4 flex items-center justify-center"
+          >
+            <AiFillCaretRight size={20} className="text-orange-500 dark:text-white" />
+          </button>
+        </div>
+          <div
+            ref={scrollMembers}
+            className="flex overflow-x-auto gap-6 pb-10 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+            style={{ scrollbarWidth: "none" }} 
+          >
+            {members.map((Member: any) => (
               <blockquote
                 key={Member.id}
-                className="flex h-full flex-col relative shadow-lg justify-between w-[300px] md:w-[450px] dark:bg-gray-700 dark:text-gray-200 bg-white pr-6 py-8 m-4"
+                className="flex-none ml-4 snap-start flex flex-col items-center justify-between w-[300px] md:w-[400px] lg:w-[450px] bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 px-6 py-10 relative mt-4"
               >
-                <div className="mt-4 flex w-[300px] md:w-[450px] justify-center items-center flex-col">
-          {Member.name === "Masood" && (
-            <div className="flex justify-center items-center absolute top-4 right-4">
-              <p className="pr-2">Founder</p>
-              <FaDotCircle />
-            </div>
-          )}
+                {Member.name === "Masood" && (
+                  <div className="flex justify-center items-center absolute top-4 right-4 gap-1">
+                    <p className="pr-1 text-sm font-semibold">Founder</p>
+                    <FaDotCircle className="text-orange-500" />
+                  </div>
+                )}
 
-          <img
-            src={Member.img}
-            width="70px"
-            alt="icon name"
-            className="mb-4 rounded-full"
-          />
-          <h3 className="font-primary font-bold text-lg">{Member.name}</h3>
-          <span>
-            From
-            <span
-              className={`pl-1 font-primary font-light ${
-                Member.location === "Pakistan"
-                  ? "text-green-500"
-                  : "text-blue-500"
-              }`}
-            >
-              {Member.location}
-            </span>
-          </span>
-          <p className="mt-4 text-gray-700 font-primary font-normal">
-            {Member.title}
-          </p>
-        </div>
+                <img
+                  src={Member.img}
+                  alt={Member.name}
+                  className="mb-4 w-20 h-20 rounded-full object-cover"
+                />
+                <h3 className="font-primary dark:text-gray-300 text-gray-600 font-bold text-lg">{Member.name}</h3>
+                <span className="text-gray-700 dark:text-gray-300 text-sm">
+                  From{" "}
+                  <span
+                    className={`pl-1 font-primary font-medium ${
+                      Member.location === "Pakistan" ? "text-green-500" : "text-blue-500"
+                    }`}
+                  >
+                    {Member.location}
+                  </span>
+                </span>
+                <p className="mt-4 text-gray-700 dark:text-gray-200 font-primary font-normal text-center">
+                  {Member.title}
+                </p>
               </blockquote>
-            );
-          })}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
-
   );
 }
 
-export default Testimonials;
+export default Members;

@@ -24,4 +24,5 @@
 .hero-content {
   justify-content: space-between;
   width: 100%;
+  padding: 0;
 }
