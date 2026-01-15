@@ -147,6 +147,7 @@ function Services() {
         height={250}
         className="w-full h-auto object-cover"
       />
+      {/* need to change this */}
     </figure>
     <div className="card-body rounded-b-xl bg-white dark:bg-gray-700 dark:text-white">
       <h2 className="card-title">
