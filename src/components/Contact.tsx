@@ -13,7 +13,7 @@ const Modal = ({ isOpen, onClose, children }) => {
     </div>
   );
 };
-
+//updated
 function Contact() {
   const [copied, setCopied] = useState({ skype: false, email: false, phone: false });
   const [formData, setFormData] = useState({
