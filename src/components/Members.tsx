@@ -32,7 +32,7 @@ function Members() {
 
 
         <div className="flex relative lg:flex-nowrap md:mt-14 mt-12 flex-wrap justify-center items-center">
-           <div className="absolute hidden lg:block right-0 -top-16 flex flex-row gap-2 z-40">
+           <div className="absolute hidden lg:flex right-0 -top-16 flex-row gap-2 z-40">
           <button
             onClick={() => scrollMembers.current.scrollBy({ left: -340, behavior: "smooth" })}
             className="bg-white dark:bg-gray-700 hover:scale-110 transition-transform duration-300 shadow-lg rounded-full p-4 flex items-center justify-center"
