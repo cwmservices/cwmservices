@@ -20,6 +20,7 @@ function Members() {
     fetchMembers();
   }, []);
 
+  //updated
   return (
     <div className="dark:bg-gray-800 bg-gray-100 py-16">
       <section className="mx-auto relative w-[90%]" id="scrollToTeam">
