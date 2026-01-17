@@ -134,7 +134,7 @@ function Header() {
 
       {navbar && (
         <div 
-          className={`lg:hidden absolute top-full left-0 w-full bg-gray-200/95 backdrop-blur-md dark:bg-gray-800/95 shadow-md z-50 overflow-hidden ${
+          className={`lg:hidden absolute top-full left-0 w-full bg-gray-100/95 backdrop-blur-md dark:bg-[#1E293B]/95 shadow-md z-50 overflow-hidden ${
             isClosing ? 'animate-slideUp' : 'animate-slideDown'
           }`}
         >
