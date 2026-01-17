@@ -1,15 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import { FaDotCircle } from "react-icons/fa";
+import { FaDotCircle, FaLink } from "react-icons/fa";
+import { MdOpenInBrowser, MdOutlineInsertLink, MdOutlineLink, MdOutlinePentagon } from "react-icons/md";
 
 function Members() {
   const [members, setMembers] = useState([]);
   const scrollMembers: any = useRef();
 
   const fetchMembers = async () => {
-    const membersJSON = await fetch("http://localhost:3000/api/portfolio");
+    const membersJSON = await fetch("/api/portfolio");
     const membersData = await membersJSON.json();
     setMembers(membersData.Members);
   };
@@ -55,10 +57,15 @@ function Members() {
                 className="flex-none ml-4 snap-start flex flex-col items-center justify-between w-[300px] md:w-[400px] lg:w-[450px] bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 px-6 py-10 relative mt-4"
               >
                 {Member.name === "Masood" && (
+                  <>
                   <div className="flex justify-center items-center absolute top-4 right-4 gap-1">
-                    <p className="pr-1 text-sm font-semibold">Founder</p>
+                    <p className="pr-1 text-sm text-gray-500 dark:text-gray-200 font-semibold">Founder</p>
                     <FaDotCircle className="text-orange-500" />
                   </div>
+                  <Link href="/about" className="absolute hover:opacity-100 text-primary opacity-90 text-xl bottom-4 right-4">
+                    <MdOutlineLink/>
+                  </Link>
+                  </>
                 )}
 
                 <img

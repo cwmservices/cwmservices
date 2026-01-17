@@ -45,7 +45,7 @@ const MessageModal = ({ isOpen, onClose }) => {
   }, []);
 
   const handleClickOutside = (event:any) => {
-    if (messageBox.current && !messageBox.current.contains(event.target)) {
+    if (window.innerWidth >= 768 && messageBox.current && !messageBox.current.contains(event.target)) {
       onClose();
     }
   };
@@ -53,9 +53,11 @@ const MessageModal = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'hidden';
     }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
@@ -99,10 +101,10 @@ const MessageModal = ({ isOpen, onClose }) => {
     return '';
   };
 
-  const validateFile = (file) => {
+  const validateFile = (file:any) => {
     if (!file) return '';
     
-    const maxSize = 5 * 1024 * 1024; // 5MB
+    const maxSize = 5 * 1024 * 1024; 
     const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
     
     if (file.size > maxSize) {
@@ -221,14 +223,17 @@ const MessageModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div ref={messageBox} className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-xl md:w-[450px] w-full max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 md:bg-black md:bg-opacity-50 flex items-center justify-center z-50 md:p-4">
+      <div 
+        ref={messageBox} 
+        className="bg-white dark:bg-gray-800 dark:text-white md:rounded-lg shadow-xl w-full h-full md:h-auto md:w-[450px] md:max-h-[90vh] flex flex-col"
+      >
         {!isSuccess ? (
           <>
             <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
               <div className="flex items-center">
                 <img src="/cwmlogo.png" alt="Logo" className="w-8 rounded-full h-8 mr-2" />
-                <h2 className="text-lg font-semibold">Message Masood U.</h2>
+                <h2 className="text-lg text-gray-800 dark:text-gray-200 font-semibold">Message Masood U.</h2>
               </div>
               <button 
                 onClick={onClose} 
@@ -359,7 +364,7 @@ const MessageModal = ({ isOpen, onClose }) => {
             </div>
           </>
         ) : (
-          <div className="p-8 text-center">
+          <div className="p-8 text-center flex-grow flex flex-col justify-center">
             <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg className="w-8 h-8 text-green-500 dark:text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

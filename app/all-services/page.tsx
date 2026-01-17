@@ -1,14 +1,8 @@
-"use client";
-
-import React from "react";
+import React from 'react'
 import Image from "next/image";
 import Link from "next/link";
-
-function Services() {
-  const scrollToHeading = () => {
-    const element = document.getElementById("scrollToElement");
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
+import Header from '@/src/components/Header';
+import Footer from '@/src/components/Footer';
 
   const services = [
     {
@@ -61,20 +55,16 @@ function Services() {
     }
   ];
 
-  return (
-    <div className="dark:bg-gray-800 bg-gray-100 dark:text-gray-100">
-      
-      <span id="scrollToServices"></span>
-      <h1
-        id="scrollToElement"
-        className="text-center pt-24 text-3xl lg:text-5xl font-primary font-bold text-primary"
-      >
-        Wh<span className="border-b pb-3 border-gray-600">at We</span> Do
-      </h1>
-      <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10">
-        Transforming your business processes for the digital future.
-      </p>
 
+
+
+
+function page() {
+  return (<>
+    <Header/>
+     <div className="dark:bg-gray-800 bg-gray-100 dark:text-gray-100">
+ 
+   
       <div className="flex text-gray-800 flex-wrap justify-between gap-6 py-10 w-[90%] mx-auto">
         {services.map((service) => (
           <div key={service.id} className="card w-full sm:w-[300px] lg:w-[350px] md:my-2 my-0 xl:w-[400px] shadow-xl group">
@@ -107,7 +97,9 @@ function Services() {
         ))}
       </div>
     </div>
-  );
+    <Footer/>
+    </>
+  )
 }
 
-export default Services;
+export default page
