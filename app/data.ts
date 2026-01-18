@@ -29,16 +29,16 @@ export const data = {
           "JavaScript",
           "React",
           "Node.js",
-          "Express.js"
+          "Express.js",
           "Tailwind CSS",
           "PostgreSQL",
           "Mantine UI",
           "FastAPI"
         ],
-        img: "/testimonyportal.png",
+        img: "/acwa.png",
         category: "WEB",
-        demo: "https://testimonyportal.netlify.app",
-        sticker: "/fiverr.png",
+        demo: "https://acwaportal.pk",
+        sticker: "",
       },
       
       {
