@@ -20,18 +20,20 @@ export const data = {
         sticker: "",
       },
       {
-        title: "Testimony Portal",
+        title: "ACWA (Agriculture, Climate & Water) Portal",
         description:
-          "Testimony Portal is a web application created for one of my client from fiverr. People from all over the world could share their videos and posts just like instagram. The admin is responsible to either approve or reject the testimonies using a user friendly dashboard.",
+          "ACWA is a web-based platform that delivers smart solutions and decision-making support for agriculture and rural development through spatial and non-spatial data visualization. I contributed to both backend and frontend development, working on file upload functionality, middleware, authentication and authorization, and database queries. I also built user interfaces for the data management module, including template creation, multi-step dataset uploads, and the solar module. Throughout the project, I actively collaborated with the team in meetings and resolved tasks and issues via Zoho Projects, earning excellent feedback for my work.",
         skills: [
-          "HTML5",
-          "CSS3",
+          "Leaflet",
+          "AWS",
           "JavaScript",
           "React",
           "Node.js",
+          "Express.js"
           "Tailwind CSS",
-          "MongoDB",
-          "Express.js",
+          "PostgreSQL",
+          "Mantine UI",
+          "FastAPI"
         ],
         img: "/testimonyportal.png",
         category: "WEB",
