@@ -11,7 +11,7 @@ import Testimonials from "@/src/components/Testimonials";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import {ClipLoader} from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 
 export default function Home() {
 
@@ -23,7 +23,7 @@ export default function Home() {
     const projectsJSON = await fetch("/api/portfolio");
     const projectsData = await projectsJSON.json();
     setProjects(projectsData.Projects);
-    setLoading(false); 
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -56,13 +56,12 @@ export default function Home() {
       <Services />
       <Projects />
       <Testimonials />
-      <Members />
       <Contact />
       <button
-      onClick={toggleTheme}
-      className="p-2 rounded-full absolute top-[18px] right-44 lg:right-56 bg-gray-200 dark:bg-gray-600 transition-colors duration-200"
+        onClick={toggleTheme}
+        className="p-2 rounded-full absolute top-[18px] right-44 lg:right-56 bg-gray-200 dark:bg-gray-600 transition-colors duration-200"
       >
-      {isDark ? '🌞' : '🌙'}
+        {isDark ? '🌞' : '🌙'}
       </button>
       <Footer />
     </main>

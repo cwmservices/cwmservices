@@ -29,7 +29,7 @@ function Contact() {
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    const handleClickOutside = (event:any) => {
+    const handleClickOutside = (event: any) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
       }
@@ -51,7 +51,7 @@ function Contact() {
 
   const validateForm = () => {
     const newErrors: any = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
     } else if (formData.name.trim().length < 2) {
@@ -61,7 +61,7 @@ function Contact() {
     } else if (!/^[a-zA-Z\s'-]+$/.test(formData.name.trim())) {
       newErrors.name = "Name can only contain letters, spaces, hyphens, and apostrophes";
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
@@ -69,7 +69,7 @@ function Contact() {
     } else if (formData.email.length > 254) {
       newErrors.email = "Email is too long";
     }
-    
+
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 10) {
@@ -77,13 +77,13 @@ function Contact() {
     } else if (formData.message.trim().length > 2000) {
       newErrors.message = "Message must be less than 2000 characters";
     }
-    
+
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
@@ -161,9 +161,8 @@ function Contact() {
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="Your Name"
-                className={`input w-full bg-gray-100 dark:bg-gray-800 input-bordered transition-all ${
-                  errors.name ? "border-red-500 shake" : ""
-                } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`input w-full bg-gray-100 dark:bg-gray-800 input-bordered transition-all ${errors.name ? "border-red-500 shake" : ""
+                  } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
               />
               {errors.name && (
                 <p className="text-red-500 text-xs mt-1 animate-slideDown">{errors.name}</p>
@@ -177,9 +176,8 @@ function Contact() {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Your Email"
-                className={`input w-full text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 input-bordered transition-all ${
-                  errors.email ? "border-red-500 shake" : ""
-                } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`input w-full text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 input-bordered transition-all ${errors.email ? "border-red-500 shake" : ""
+                  } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1 animate-slideDown">{errors.email}</p>
@@ -192,15 +190,13 @@ function Contact() {
                   type="button"
                   onClick={() => !isSubmitting && setIsDropdownOpen(!isDropdownOpen)}
                   disabled={isSubmitting}
-                  className={`w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600 transition-all ${
-                    isSubmitting ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                  className={`w-full bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600 transition-all ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
                 >
                   <span>{formData.requestType}</span>
                   <svg
-                    className={`w-5 h-5 transition-transform ${
-                      isDropdownOpen ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${isDropdownOpen ? "rotate-180" : ""
+                      }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -244,9 +240,8 @@ function Contact() {
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Tell us about your project..."
-                className={`textarea textarea-bordered w-full h-40 resize-none bg-gray-100 dark:bg-gray-800 transition-all ${
-                  errors.message ? "border-red-500 shake" : ""
-                } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`textarea textarea-bordered w-full h-40 resize-none bg-gray-100 dark:bg-gray-800 transition-all ${errors.message ? "border-red-500 shake" : ""
+                  } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
               ></textarea>
               {errors.message && (
                 <p className="text-red-500 text-xs mt-1 animate-slideDown">{errors.message}</p>
@@ -260,15 +255,14 @@ function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`rounded-lg px-8 py-3 bg-primary duration-200 opacity-90 hover:opacity-100 text-white transition-all ${
-                  isSubmitting ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+                className={`rounded-lg px-8 py-3 bg-primary duration-200 opacity-90 hover:opacity-100 text-white transition-all ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
                     <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
                     Sending...
                   </span>
