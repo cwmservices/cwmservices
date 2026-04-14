@@ -12,14 +12,14 @@ const MAX_REQUESTS = 3; // Max 3 quote submissions per hour per IP
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const requests = rateLimitMap.get(ip) || [];
-  
+
   // Remove old requests outside the window
   const recentRequests = requests.filter(time => now - time < RATE_LIMIT_WINDOW);
-  
+
   if (recentRequests.length >= MAX_REQUESTS) {
     return false;
   }
-  
+
   recentRequests.push(now);
   rateLimitMap.set(ip, recentRequests);
   return true;
@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
     if (file && file.size > 0) {
       const maxFileSize = 5 * 1024 * 1024; // 5MB
       const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
-      
+
       if (file.size > maxFileSize) {
         return NextResponse.json(
           { error: "File size must be less than 5MB" },
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
       // Convert file to buffer for email attachment
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
-      
+
       fileInfo = {
         filename: file.name,
         content: buffer,
@@ -147,10 +147,10 @@ export async function POST(req: NextRequest) {
                         <strong style="color: #495057; font-size: 14px;">Submitted:</strong>
                       </td>
                       <td style="padding: 12px 0; text-align: right;">
-                        <span style="color: #212529; font-size: 14px;">${new Date().toLocaleString('en-US', { 
-                          dateStyle: 'full', 
-                          timeStyle: 'short' 
-                        })}</span>
+                        <span style="color: #212529; font-size: 14px;">${new Date().toLocaleString('en-US', {
+      dateStyle: 'full',
+      timeStyle: 'short'
+    })}</span>
                       </td>
                     </tr>
                   </table>
@@ -243,10 +243,10 @@ export async function POST(req: NextRequest) {
                       </tr>
                       <tr>
                         <td style="padding: 8px 0; color: #6c757d; font-size: 14px;">Submitted:</td>
-                        <td style="padding: 8px 0; color: #212529; font-size: 14px; text-align: right;">${new Date().toLocaleString('en-US', { 
-                          dateStyle: 'medium', 
-                          timeStyle: 'short' 
-                        })}</td>
+                        <td style="padding: 8px 0; color: #212529; font-size: 14px; text-align: right;">${new Date().toLocaleString('en-US', {
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    })}</td>
                       </tr>
                     </table>
                     

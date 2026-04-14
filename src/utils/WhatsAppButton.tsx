@@ -26,16 +26,17 @@ const WhatsAppButton = () => {
       target="_blank"
       href="https://api.whatsapp.com/send/?phone=923319272285&text&type=phone_number&app_absent=0"
       className={`
-        fixed left-4 z-50 transition-all duration-300
-        ${nearBottom ? "bottom-[9px]" : "bottom-6"}
+        fixed left-4 md:left-6 z-50 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 drop-shadow-lg hover:drop-shadow-[0_8px_16px_rgba(37,211,102,0.4)]
+        ${nearBottom ? "md:bottom-[160px] bottom-[120px]" : "bottom-6"}
       `}
+      aria-label="Contact us on WhatsApp"
     >
       <Image
         className="whatsappanim"
         src="/whatsapp.png"
         width={50}
         height={50}
-        alt="whatsapp logo"
+        alt="WhatsApp icon"
       />
     </Link>
   );

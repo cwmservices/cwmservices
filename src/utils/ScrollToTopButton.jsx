@@ -1,5 +1,5 @@
 "use client";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaChevronUp } from "react-icons/fa";
 
 const ScrollToTopButton = () => {
@@ -15,7 +15,7 @@ const ScrollToTopButton = () => {
 
   const handleClick = () => {
     if (typeof window !== "undefined") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -34,11 +34,11 @@ const ScrollToTopButton = () => {
   return (
     <button
       onClick={handleClick}
-      className={`fixed right-4 bottom-4 p-2 bg-light transition-colors ${
-        showButton ? "bg-primary opacity-90 hover:opacity-100" : "hidden"
-      }`}
+      aria-label="Scroll to top"
+      className={`fixed right-4 bottom-4 md:right-3 md:bottom-4 z-50 p-2.5 sm:p-2.5 rounded-full bg-primary text-white shadow-[0_4px_10px_rgba(240,135,0,0.3)] hover:shadow-[0_8px_18px_rgba(240,135,0,0.5)] hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center ${showButton ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+        }`}
     >
-      <FaChevronUp size="20" className="text-white" />
+      <FaChevronUp size="16" />
     </button>
   );
 };
