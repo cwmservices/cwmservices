@@ -3,6 +3,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import MessageModal from "../utils/MessageBox";
 
 const NAV_ITEMS = [
@@ -44,6 +45,19 @@ export default function Header() {
   const [isClosing, setIsClosing] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const pathname = usePathname();
+
+  /* Cross-page hash navigation fix */
+  useEffect(() => {
+    if (window.location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(window.location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 150);
+    }
+  }, [pathname]);
 
   /*
     Start as false (matches server render exactly → no hydration mismatch).

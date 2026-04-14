@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning is required because the blocking script below
       may add class="dark" to <html> before React hydrates — that's intentional.
     */
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth scroll-pt-[80px] lg:scroll-pt-[90px] xl:scroll-pt-[100px]">
       <head>
         {/*
           ── BLOCKING theme script ────────────────────────────────────────
