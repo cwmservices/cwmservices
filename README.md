@@ -4,6 +4,18 @@ I began my journey as a full-stack developer, building end-to-end applications f
 ## CONNECT WITH ME
 <table>
   <tr>
+   <td align="center" width="96" style="border: 1px solid #808080;">
+      <a href="https://www.cwmservices.dev" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/domain--v1.png" width="48" height="48" alt="Website" />
+      </a>
+      <br>Website
+    </td>
+    <td align="center" width="96" style="border: 1px solid #808080;">
+      <a href="https://discord.com/cwmservices" target="_blank">
+        <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" width="48" height="48" alt="Discord" />
+      </a>
+      <br>Discord
+    </td>
     <td align="center" width="96" style="border: 1px solid #808080;">
       <a href="https://linkedin.com/in/cwmservices" target="_blank">
         <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" width="48" height="48" alt="LinkedIn" />
@@ -22,12 +34,9 @@ I began my journey as a full-stack developer, building end-to-end applications f
       </a>
       <br>YouTube
     </td>
-   <td align="center" width="96" style="border: 1px solid #808080;">
-  <a href="https://x.com/cwmservices" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" style="padding-top:30px" width="48" height="48" alt="X" />
-  </a>
-  <br>X
-</td>
+
+    
+
   </tr>
 </table>
 
