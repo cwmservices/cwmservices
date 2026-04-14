@@ -24,7 +24,7 @@ I began my journey as a full-stack developer, building end-to-end applications f
     </td>
    <td align="center" width="96" style="border: 1px solid #808080;">
   <a href="https://x.com/cwmservices" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" width="48" height="48" alt="X" style="background-color: black; border-radius: 8px;" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" width="48" height="48" alt="X" />
   </a>
   <br>X
 </td>
