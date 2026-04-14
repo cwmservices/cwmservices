@@ -11,6 +11,8 @@ const outfit = Outfit({
   display: "swap",
 });
 
+// updated 
+
 const geist = localFont({
   src: [
     { path: "../node_modules/geist/dist/fonts/geist-sans/Geist-Regular.woff2", weight: "400" },
