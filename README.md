@@ -1,5 +1,5 @@
 # About Me:
-I began my journey as a full-stack developer, building end-to-end applications for individuals and working on hobby projects. Over time, this path naturally evolved into successful freelancing and then founding my own agency, where I focus on delivering reliable, modern digital solutions for real businesses. Today, I work across backend and frontend development, helping clients turn ideas into scalable applications. Alongside client work, I actively create educational content on YouTube and write technical articles, sharing practical knowledge and documenting my growth in the tech space. As a founder, I care deeply about clean engineering, long-term impact, and continuous learning. I'm currently exploring AI and agentic development, with a strong interest in how intelligent systems can improve workflows and digital products. ~Driven by curiosity. Focused on quality. Building with purpose.
+I began my journey as a full-stack developer, building end-to-end applications for individuals and working on hobby projects. Over time, this path naturally evolved into successful freelancing and then founding my own agency, where I focus on delivering reliable, modern digital solutions for real businesses. Today, I work across backend and frontend development, helping clients turn ideas into scalable applications. Alongside client work, I actively create educational content on YouTube and write technical articles, sharing practical knowledge and documenting my growth in the tech space. As a founder, I care deeply about clean engineering, long-term impact, and continuous learning. I'm currently exploring AI and agentic development, with a strong interest in how intelligent systems can improve workflows and digital products.
 
 ## CONNECT WITH ME
 <table>
@@ -22,12 +22,12 @@ I began my journey as a full-stack developer, building end-to-end applications f
       </a>
       <br>YouTube
     </td>
-    <td align="center" width="96" style="border: 1px solid #808080;">
-      <a href="https://x.com/cwmservices" target="_blank">
-        <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" width="48" height="48" alt="Twitter" />
-      </a>
-      <br>Twitter
-    </td>
+   <td align="center" width="96" style="border: 1px solid #808080;">
+  <a href="https://x.com/cwmservices" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" width="48" height="48" alt="X" style="background-color: black; border-radius: 8px;" />
+  </a>
+  <br>X
+</td>
   </tr>
 </table>
 
