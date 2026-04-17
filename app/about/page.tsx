@@ -18,7 +18,7 @@ function AboutPage() {
           {/* Profile Image with subtle premium glow */}
           <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-8 ring-4 ring-primary/20 hover:ring-primary/40 dark:ring-primary/10 dark:hover:ring-primary/30 transition-all duration-500 shadow-nav dark:shadow-nav-dark">
             <Image
-              src="/masood1.jpeg"
+              src="/masood2.png"
               alt="Masood Ur Rehman"
               fill
               className="object-cover hover:scale-110 transition-transform duration-700"
