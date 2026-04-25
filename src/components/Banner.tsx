@@ -61,7 +61,7 @@ function Banner() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
-                href="/projects"
+                href="/#projects"
                 className="font-display text-[15px] xl:text-[16px] font-[600] tracking-[0.03em]
                            px-8 py-3.5 xl:px-10 xl:py-4 rounded-xl
                            bg-primary hover:bg-secondary text-white
@@ -72,7 +72,7 @@ function Banner() {
                 View Our Work
               </Link>
               <Link
-                href="/contact"
+                href="/#contact"
                 className="font-display text-[15px] xl:text-[16px] font-[600] tracking-[0.03em]
                            px-8 py-3.5 xl:px-10 xl:py-4 rounded-xl
                            bg-surface-muted dark:bg-surface-dark-muted hover:bg-border-light dark:hover:bg-border-dark
