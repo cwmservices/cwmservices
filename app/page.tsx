@@ -51,7 +51,7 @@ export default function Home() {
   const handleSplineLoad = useCallback(() => {
     setIsLoading(false);
   }, []);
-  // updated version 2.0
+  // updated version 2.0 with new node version
   return (
     <main>
       <PageLoader isLoading={isLoading} />
