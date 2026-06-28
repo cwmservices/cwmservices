@@ -47,12 +47,11 @@ export default function Home() {
     document.documentElement.classList.toggle('dark');
   };
 
-  // ── Page loader — dismissed when Spline scene fires its load event ──
   const [isLoading, setIsLoading] = useState(true);
   const handleSplineLoad = useCallback(() => {
     setIsLoading(false);
   }, []);
-
+  // updated version 2.0
   return (
     <main>
       <PageLoader isLoading={isLoading} />
