@@ -5,12 +5,12 @@
  * Simple fade-up reveal used across all sections.
  */
 
-import { motion, useInView, MotionProps } from "framer-motion";
+import { motion, useInView, MotionProps, Variants } from "framer-motion";
 import { useRef, ReactNode } from "react";
 
 // ── Variants ────────────────────────────────────────────────────────────────
 
-export const fadeUp = {
+export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
@@ -19,7 +19,7 @@ export const fadeUp = {
   },
 };
 
-export const fadeIn = {
+export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -27,7 +27,7 @@ export const fadeIn = {
   },
 };
 
-export const staggerContainer = (stagger = 0.08, delayChildren = 0) => ({
+export const staggerContainer = (stagger = 0.08, delayChildren = 0): Variants => ({
   hidden: {},
   show: {
     transition: {
