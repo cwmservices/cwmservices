@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Modal = ({ isOpen, onClose, children }: any) => {
   if (!isOpen) return null;
@@ -135,12 +136,17 @@ function Contact() {
 
   return (
     <section
-      id="contact"
       className="bg-light dark:bg-dark transition-colors duration-300 relative pb-20 sm:pb-20 lg:pb-20 xl:pb-20"
     >
-      <span id="scrollToContact"></span>
       <div className="w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto">
-        <div className="text-center mb-3 py-14">
+        <motion.div
+          id="contact"
+          className="text-center mb-3 py-14 scroll-mt-24"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        >
           <h1 className="text-center text-3xl lg:text-5xl font-display font-bold text-ink dark:text-ink-dark">
             Ge<span className="border-b pb-3 text-primary border-primary">t In Tou</span>ch
           </h1>
@@ -148,9 +154,15 @@ function Contact() {
             We enjoy partnering with companies that share our vision of enhancing their online presence.
             Let's turn your ideas into powerful digital solutions. <span className="font-semibold text-ink dark:text-ink-dark">masood@cwmservices.dev</span>
           </p>
-        </div>
+        </motion.div>
 
-        <div className="bg-surface dark:bg-surface-dark-muted border border-border-light dark:border-border-dark rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] p-6 sm:p-8 md:p-12 max-w-4xl mx-auto relative overflow-hidden group">
+        <motion.div
+          className="bg-surface dark:bg-surface-dark-muted border border-border-light dark:border-border-dark rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] p-6 sm:p-8 md:p-12 max-w-4xl mx-auto relative overflow-hidden group"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+        >
           <form
             onSubmit={handleSubmit}
             className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10"
@@ -265,7 +277,7 @@ function Contact() {
               </button>
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>

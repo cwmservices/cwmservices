@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ProjectSidebar from "../utils/ProjectSidebar";
+import { motion, useInView } from "framer-motion";
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -117,43 +118,46 @@ function Projects() {
         .project-card:hover .project-title {
           color: var(--color-primary, #F08700);
         }
-
-        /* ── Stagger-in animation (pure CSS, no JS) ── */
-        @keyframes cardReveal {
-          from { opacity: 0; transform: translateY(20px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .card-animate {
-          opacity: 0;
-          animation: cardReveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
       `}</style>
 
       <section
-        id="projects"
-        className="bg-light dark:bg-dark transition-colors duration-300 relative pb-10 sm:pb-10 lg:pb-10 xl:pb-10"
+        className="bg-light dark:bg-dark transition-colors pt-20 duration-300 relative pb-10 sm:pb-10 lg:pb-10 xl:pb-10"
       >
-        <span id="scrollToProjects"></span>
-
         {/* ── Single shared container — same as header/services ── */}
         <div className="w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto">
-          <div className="py-14">
-            <h1 className="text-center text-3xl lg:text-5xl font-bold dark:text-gray-100">
+          <div id="projects" className="py-14 scroll-mt-8">
+            <motion.h1
+              className="text-center text-3xl lg:text-5xl font-bold dark:text-gray-100"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            >
               Ou<span className="border-b pb-3 text-primary border-primary">r Fine</span>st Work
-            </h1>
-            <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-gray-600 dark:text-gray-300">
+            </motion.h1>
+            <motion.p
+              className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-gray-600 dark:text-gray-300"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+            >
               A showcase of our capabilities and the projects we&apos;ve built.
-            </p>
+            </motion.p>
           </div>
 
           {/* ── Projects Grid ── */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-7 xl:gap-8 2xl:gap-10">
             {projects.map((project: any, i: number) => (
-              <div
+              <motion.div
                 key={project.title}
                 onClick={() => openModal(project)}
-                className="project-card card-animate group relative flex flex-col bg-surface dark:bg-surface-dark-muted border border-border-light dark:border-border-dark rounded-2xl overflow-hidden cursor-pointer"
-                style={{ animationDelay: (0.05 + Math.min(i * 0.07, 0.5)) + "s" }}
+                className="project-card group relative flex flex-col bg-surface dark:bg-surface-dark-muted border border-border-light dark:border-border-dark rounded-2xl overflow-hidden cursor-pointer"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1], delay: Math.min(i * 0.07, 0.35) }}
+                whileHover={{ y: -4 }}
               >
                 {/* ── Image ── */}
                 <div className="relative w-full overflow-hidden bg-surface-muted dark:bg-dark" style={{ aspectRatio: "16 / 10" }}>
@@ -177,9 +181,6 @@ function Projects() {
                         {project.title}
                       </h3>
                     </span>
-                    {/* <span className="font-body text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
-                      {project.category}
-                    </span> */}
                   </div>
 
                   {/* Short description */}
@@ -202,7 +203,7 @@ function Projects() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>{/* end grid */}
         </div>{/* end shared container */}

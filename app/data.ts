@@ -3,7 +3,7 @@ export const data = {
     {
       title: "Digital Mechanics (My Final Year project at University)",
       description:
-        "Digital Mechanic is a web application created with aim to promote home made food. Developed for FYP which has features from booking mechanic services at your door step to ordering tools and equipments.",
+        "Digital Mechanic is a web application created with aim to promote digital mechanic services at doorsteps. Developed for FYP which has features from booking mechanic services at your door step to ordering tools and equipments.",
       skills: [
         "HTML5",
         "CSS3",

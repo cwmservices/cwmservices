@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import ScrollToTopButton from "../utils/ScrollToTopButton";
 import {
   AiFillLinkedin,
@@ -16,7 +17,13 @@ function Footer() {
   return (
     <>
       <footer className="bg-light dark:bg-dark transition-colors duration-300 border-t border-border-light dark:border-border-dark relative z-30">
-        <div className="w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto py-8 sm:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <motion.div
+          className="w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto py-8 sm:py-10 flex flex-col md:flex-row items-center justify-between gap-6"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+        >
 
           {/* Logo & Copyright */}
           <div className="flex flex-col items-center md:items-start gap-2">
@@ -48,7 +55,7 @@ function Footer() {
               </a>
             ))}
           </div>
-        </div>
+        </motion.div>
       </footer>
 
       {/* Floating Action Buttons */}

@@ -3,6 +3,10 @@ import nodemailer from "nodemailer";
 
 import {data} from "../../data";
 
+// Prevent Next.js 13 static-cache streaming optimisation that causes
+// ERR_INVALID_STATE when the internal flush timer fires after the stream closes.
+export const dynamic = 'force-dynamic';
+
 export const GET = (req:Request,res:Response)=>{
     return NextResponse.json(data);
 }

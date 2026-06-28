@@ -8,7 +8,6 @@ import MessageModal from "../utils/MessageBox";
 
 const NAV_ITEMS = [
   { label: "About", path: "/about" },
-  { label: "Services", path: "/#services" },
   { label: "Projects", path: "/#projects" },
   { label: "Testimonials", path: "/#testimonials" },
   { label: "Contact", path: "/#contact" },

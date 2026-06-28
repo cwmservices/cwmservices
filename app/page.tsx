@@ -5,12 +5,12 @@ import Contact from "@/src/components/Contact";
 import Footer from "@/src/components/Footer";
 import Header from "@/src/components/Header";
 import Members from "@/src/components/Members";
+import PageLoader from "@/src/components/PageLoader";
 import Projects from "@/src/components/Projects";
-import Services from "@/src/components/Services";
 import Testimonials from "@/src/components/Testimonials";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { ClipLoader } from 'react-spinners';
 
 export default function Home() {
@@ -47,13 +47,17 @@ export default function Home() {
     document.documentElement.classList.toggle('dark');
   };
 
-
+  // ── Page loader — dismissed when Spline scene fires its load event ──
+  const [isLoading, setIsLoading] = useState(true);
+  const handleSplineLoad = useCallback(() => {
+    setIsLoading(false);
+  }, []);
 
   return (
     <main>
+      <PageLoader isLoading={isLoading} />
       <Header />
-      <Banner />
-      <Services />
+      <Banner onLoad={handleSplineLoad} />
       <Projects />
       <Testimonials />
       <Contact />
