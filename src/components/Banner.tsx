@@ -105,7 +105,7 @@ function Banner({ onLoad }: { onLoad?: () => void }) {
             {/* Eyebrow — magic sparkle + thin label, black/white adaptive */}
             <motion.div
               className="mb-5 inline-flex items-center justify-center lg:justify-start gap-2.5"
-              variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.4,0,0.2,1] } } }}
+              variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.4, 0, 0.2, 1] } } }}
             >
               <svg
                 width="15" height="15" viewBox="0 0 16 16"
@@ -126,7 +126,7 @@ function Banner({ onLoad }: { onLoad?: () => void }) {
             {/* Headline — "Custom AI Development" on its own line, highlighted */}
             <motion.h1
               className="lg:block hidden text-[32px] sm:text-[40px] lg:text-[44px] xl:text-[54px] text-ink dark:text-ink-dark font-semibold font-display leading-[1.13] tracking-tight mb-5 drop-shadow-sm transition-colors duration-300 max-w-[500px] xl:max-w-[580px]"
-              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.4,0,0.2,1] } } }}
+              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } } }}
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary whitespace-nowrap">
                 Custom AI Development
@@ -138,7 +138,7 @@ function Banner({ onLoad }: { onLoad?: () => void }) {
 
             <motion.h1
               className="lg:hidden block text-[32px] sm:text-[40px] text-ink dark:text-ink-dark font-semibold font-display leading-[1.13] tracking-tight mb-5 drop-shadow-sm transition-colors duration-300"
-              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.4,0,0.2,1] } } }}
+              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } } }}
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 Custom AI Development
@@ -149,7 +149,7 @@ function Banner({ onLoad }: { onLoad?: () => void }) {
 
             <motion.p
               className="text-ink-muted dark:text-ink-dark-muted font-body text-base lg:text-[15px] xl:text-lg max-w-xl mx-auto lg:mx-0 mb-7 lg:mb-8 leading-relaxed transition-colors duration-300"
-              variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.4,0,0.2,1] } } }}
+              variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.4, 0, 0.2, 1] } } }}
             >
               We build and deliver AI-powered solutions to automate workflows,
               improve decision-making and scale operations. Inspire your audience
@@ -158,7 +158,7 @@ function Banner({ onLoad }: { onLoad?: () => void }) {
 
             <motion.div
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
-              variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.4,0,0.2,1] } } }}
+              variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] } } }}
             >
               <Link
                 href="/#projects"
