@@ -7,6 +7,8 @@ import { Github, Linkedin, Twitter, Mail, Globe } from "lucide-react";
 import Header from "@/src/components/Header";
 import Footer from "@/src/components/Footer";
 
+// updated
+
 function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-light dark:bg-dark transition-colors duration-300">

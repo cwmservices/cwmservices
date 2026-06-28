@@ -1,35 +1,16 @@
 # About Me:
-I began my journey as a full-stack developer, building end-to-end applications for individuals and working on hobby projects. Over time, this path naturally evolved into successful freelancing and then founding my own agency, where I focus on delivering reliable, modern digital solutions for real businesses. Today, I work across backend and frontend development, helping clients turn ideas into scalable applications. Alongside client work, I actively create educational content on YouTube and write technical articles, sharing practical knowledge and documenting my growth in the tech space. As a founder, I care deeply about clean engineering, long-term impact, and continuous learning. I'm currently exploring AI and agentic development, with a strong interest in how intelligent systems can improve workflows and digital products. ~Driven by curiosity. Focused on quality. Building with purpose.
+I began my journey as a full-stack developer, building end-to-end applications for individuals and working on hobby projects. Over time, this path naturally evolved into successful freelancing and then founding my own agency, where I focus on delivering reliable, modern digital solutions for real businesses. Today, I work across backend and frontend development, helping clients turn ideas into scalable applications. Alongside client work, I actively create educational content on YouTube and write technical articles, sharing practical knowledge and documenting my growth in the tech space. As a founder, I care deeply about clean engineering, long-term impact, and continuous learning. I'm currently exploring AI and agentic development, with a strong interest in how intelligent systems can improve workflows and digital products.
 
 ## CONNECT WITH ME
-<table>
-  <tr>
-    <td align="center" width="96" style="border: 1px solid #808080;">
-      <a href="https://linkedin.com/in/cwmservices" target="_blank">
-        <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" width="48" height="48" alt="LinkedIn" />
-      </a>
-      <br>LinkedIn
-    </td>
-    <td align="center" width="96" style="border: 1px solid #808080;">
-      <a href="https://discord.com/cwmservices" target="_blank">
-        <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" width="48" height="48" alt="Discord" />
-      </a>
-      <br>Discord
-    </td>
-    <td align="center" width="96" style="border: 1px solid #808080;">
-      <a href="https://youtube.com/@CodeWithMasood" target="_blank">
-        <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" width="48" height="48" alt="YouTube" />
-      </a>
-      <br>YouTube
-    </td>
-    <td align="center" width="96" style="border: 1px solid #808080;">
-      <a href="https://x.com/cwmservices" target="_blank">
-        <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" width="48" height="48" alt="Twitter" />
-      </a>
-      <br>Twitter
-    </td>
-  </tr>
-</table>
+<div align="left">
+
+[![Website](https://img.shields.io/badge/Website-cwmservices.dev-185FA5?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.cwmservices.dev)
+[![Discord](https://img.shields.io/badge/Discord-cwmservices-534AB7?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/cwmservices)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-cwmservices-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/cwmservices)
+[![YouTube](https://img.shields.io/badge/YouTube-CodeWithMasood-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@CodeWithMasood)
+[![X](https://img.shields.io/badge/X-cwmservices-000000?style=for-the-badge&logo=x&logoColor=white)](https://www.x.com/cwmservices)
+
+</div>
 
 ## Languages and Tools
 
