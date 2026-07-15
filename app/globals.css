@@ -36,3 +36,25 @@
   width: 100%;
   padding: 0;
 }
+
+html,
+body {
+  background-color: #0b0b0d;
+  color: #fff;
+  min-height: 100%;
+  overscroll-behavior-y: none;
+}
+
+/* Text selection */
+::selection {
+  background: #2563eb;
+  /* Blue */
+  color: #ffffff;
+  /* White */
+}
+
+/* Firefox support */
+::-moz-selection {
+  background: #2563eb;
+  color: #ffffff;
+}

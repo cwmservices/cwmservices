@@ -14,11 +14,10 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-outfit)", "sans-serif"],
         body: ["var(--font-geist)", "sans-serif"],
-        // legacy aliases so existing classes don't break
+        nav: ["var(--font-jakarta)", "sans-serif"], // add this
         primary: ["var(--font-outfit)", "sans-serif"],
         secondary: ["var(--font-geist)", "sans-serif"],
       },
-
       // ── Brand Colours ─────────────────────────────────────────────
       colors: {
         dark: "#0F1420",   // deep ink navy

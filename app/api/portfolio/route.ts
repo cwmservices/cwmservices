@@ -96,67 +96,67 @@ export async function POST(req: NextRequest) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>New Contact Form Submission</title>
     </head>
-    <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
-      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0A0B10; color: #f3f4f6;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #0A0B10; padding: 40px 20px;">
         <tr>
           <td align="center">
-            <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <table width="600" cellpadding="0" cellspacing="0" style="background-color: #12141D; border-radius: 12px; overflow: hidden; border: 1px solid #1E2028; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
               <!-- Header -->
               <tr>
-                <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center;">
-                  <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: bold;">New Contact Form Submission</h1>
-                  <p style="margin: 10px 0 0; color: #f0f0f0; font-size: 14px;">CWM Services</p>
+                <td style="padding: 40px 30px; text-align: center; border-bottom: 1px solid #1E2028;">
+                  <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">New Request Received</h1>
+                  <p style="margin: 8px 0 0; color: #8b949e; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">CWM Services</p>
                 </td>
               </tr>
               
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
-                  <div style="background-color: #f8f9fa; border-left: 4px solid #667eea; padding: 15px; margin-bottom: 20px;">
-                    <p style="margin: 0; color: #667eea; font-weight: bold; font-size: 16px;">Request Type: ${requestType}</p>
+                  <div style="background-color: #1A1C24; border-left: 3px solid #6366f1; padding: 16px; margin-bottom: 30px; border-radius: 0 6px 6px 0;">
+                    <p style="margin: 0; color: #a5b4fc; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px;">Type: \${requestType}</p>
                   </div>
                   
-                  <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
+                  <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 30px;">
                     <tr>
-                      <td style="padding: 12px 0; border-bottom: 1px solid #e9ecef;">
-                        <strong style="color: #495057; font-size: 14px;">Name:</strong>
+                      <td style="padding: 16px 0; border-bottom: 1px solid #1E2028;">
+                        <strong style="color: #8b949e; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Name</strong>
                       </td>
-                      <td style="padding: 12px 0; border-bottom: 1px solid #e9ecef; text-align: right;">
-                        <span style="color: #212529; font-size: 14px;">${name}</span>
+                      <td style="padding: 16px 0; border-bottom: 1px solid #1E2028; text-align: right;">
+                        <span style="color: #e5e7eb; font-size: 16px; font-weight: 500;">\${name}</span>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding: 12px 0; border-bottom: 1px solid #e9ecef;">
-                        <strong style="color: #495057; font-size: 14px;">Email:</strong>
+                      <td style="padding: 16px 0; border-bottom: 1px solid #1E2028;">
+                        <strong style="color: #8b949e; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Email</strong>
                       </td>
-                      <td style="padding: 12px 0; border-bottom: 1px solid #e9ecef; text-align: right;">
-                        <a href="mailto:${email}" style="color: #667eea; text-decoration: none; font-size: 14px;">${email}</a>
+                      <td style="padding: 16px 0; border-bottom: 1px solid #1E2028; text-align: right;">
+                        <a href="mailto:\${email}" style="color: #818cf8; text-decoration: none; font-size: 16px; font-weight: 500;">\${email}</a>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding: 12px 0;">
-                        <strong style="color: #495057; font-size: 14px;">Submitted:</strong>
+                      <td style="padding: 16px 0; border-bottom: 1px solid #1E2028;">
+                        <strong style="color: #8b949e; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Date</strong>
                       </td>
-                      <td style="padding: 12px 0; text-align: right;">
-                        <span style="color: #212529; font-size: 14px;">${new Date().toLocaleString('en-US', { 
-                          dateStyle: 'full', 
+                      <td style="padding: 16px 0; border-bottom: 1px solid #1E2028; text-align: right;">
+                        <span style="color: #9ca3af; font-size: 14px;">\${new Date().toLocaleString('en-US', { 
+                          dateStyle: 'medium', 
                           timeStyle: 'short' 
                         })}</span>
                       </td>
                     </tr>
                   </table>
                   
-                  <div style="margin-top: 30px;">
-                    <h3 style="color: #495057; font-size: 16px; margin-bottom: 10px;">Message:</h3>
-                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; border: 1px solid #e9ecef;">
-                      <p style="margin: 0; color: #212529; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+                  <div>
+                    <strong style="display: block; color: #8b949e; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Message</strong>
+                    <div style="background-color: #0A0B10; padding: 24px; border-radius: 8px; border: 1px solid #1E2028;">
+                      <p style="margin: 0; color: #d1d5db; font-size: 15px; line-height: 1.7; white-space: pre-wrap;">\${message}</p>
                     </div>
                   </div>
                   
-                  <div style="margin-top: 30px; text-align: center;">
-                    <a href="mailto:${email}?subject=Re: ${requestType}" 
-                       style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px;">
-                      Reply to ${name}
+                  <div style="margin-top: 40px; text-align: center;">
+                    <a href="mailto:\${email}?subject=Re: \${requestType} - CWM Services" 
+                       style="display: inline-block; background-color: #ffffff; color: #0A0B10; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 15px; transition: opacity 0.2s;">
+                      Reply to \${name}
                     </a>
                   </div>
                 </td>
@@ -164,9 +164,9 @@ export async function POST(req: NextRequest) {
               
               <!-- Footer -->
               <tr>
-                <td style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e9ecef;">
-                  <p style="margin: 0; color: #6c757d; font-size: 12px;">
-                    This email was sent from your website contact form at CWM Services
+                <td style="background-color: #0A0B10; padding: 24px; text-align: center; border-top: 1px solid #1E2028;">
+                  <p style="margin: 0; color: #6b7280; font-size: 13px;">
+                    Secure notification from CWM Services
                   </p>
                 </td>
               </tr>
@@ -187,49 +187,49 @@ export async function POST(req: NextRequest) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Thank You for Contacting Us</title>
     </head>
-    <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
-      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0A0B10; color: #f3f4f6;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #0A0B10; padding: 40px 20px;">
         <tr>
           <td align="center">
-            <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <table width="600" cellpadding="0" cellspacing="0" style="background-color: #12141D; border-radius: 12px; overflow: hidden; border: 1px solid #1E2028; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
               <!-- Header -->
               <tr>
-                <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center;">
-                  <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: bold;">Thank You, ${name}!</h1>
-                  <p style="margin: 10px 0 0; color: #f0f0f0; font-size: 16px;">We've received your message</p>
+                <td style="padding: 40px 30px; text-align: center; border-bottom: 1px solid #1E2028;">
+                  <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Message Received</h1>
+                  <p style="margin: 10px 0 0; color: #8b949e; font-size: 15px;">Thank you for reaching out, \${name}</p>
                 </td>
               </tr>
               
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
-                  <p style="margin: 0 0 20px; color: #212529; font-size: 16px; line-height: 1.6;">
-                    Hi ${name},
+                  <p style="margin: 0 0 24px; color: #d1d5db; font-size: 16px; line-height: 1.7;">
+                    Hi \${name},
                   </p>
                   
-                  <p style="margin: 0 0 20px; color: #212529; font-size: 16px; line-height: 1.6;">
-                    Thank you for reaching out to us! We've successfully received your ${requestType.toLowerCase()} and our team will review it shortly.
+                  <p style="margin: 0 0 30px; color: #d1d5db; font-size: 16px; line-height: 1.7;">
+                    We've successfully received your <strong style="color: #ffffff;">\${requestType.toLowerCase()}</strong> request. Our team will review your inquiry and get back to you shortly.
                   </p>
                   
-                  <div style="background-color: #f8f9fa; border-left: 4px solid #667eea; padding: 20px; margin: 30px 0;">
-                    <p style="margin: 0 0 10px; color: #495057; font-weight: bold;">What happens next?</p>
-                    <ul style="margin: 0; padding-left: 20px; color: #212529; font-size: 14px; line-height: 1.8;">
-                      <li>Our team will review your message within 24-48 hours</li>
-                      <li>We'll reach out to you at <strong>${email}</strong></li>
-                      <li>You'll receive a personalized response addressing your inquiry</li>
+                  <div style="background-color: #1A1C24; border-left: 3px solid #6366f1; padding: 24px; margin-bottom: 30px; border-radius: 0 6px 6px 0;">
+                    <p style="margin: 0 0 12px; color: #e5e7eb; font-weight: 600; font-size: 15px;">What's next?</p>
+                    <ul style="margin: 0; padding-left: 20px; color: #9ca3af; font-size: 15px; line-height: 1.8;">
+                      <li style="margin-bottom: 8px;">We typically respond within 24-48 hours.</li>
+                      <li style="margin-bottom: 8px;">We'll reach out to you directly at <span style="color: #e5e7eb;">\${email}</span>.</li>
+                      <li>You'll receive a detailed, personalized response.</li>
                     </ul>
                   </div>
                   
-                  <div style="background-color: #fff; border: 1px solid #e9ecef; border-radius: 6px; padding: 20px; margin: 30px 0;">
-                    <h3 style="margin: 0 0 15px; color: #495057; font-size: 16px;">Your Message Summary:</h3>
+                  <div style="background-color: #0A0B10; border: 1px solid #1E2028; border-radius: 8px; padding: 24px; margin-bottom: 30px;">
+                    <h3 style="margin: 0 0 16px; color: #e5e7eb; font-size: 15px; font-weight: 600;">Request Summary</h3>
                     <table width="100%" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="padding: 8px 0; color: #6c757d; font-size: 14px;">Request Type:</td>
-                        <td style="padding: 8px 0; color: #212529; font-size: 14px; text-align: right;"><strong>${requestType}</strong></td>
+                        <td style="padding: 10px 0; border-bottom: 1px solid #1E2028; color: #8b949e; font-size: 14px;">Type</td>
+                        <td style="padding: 10px 0; border-bottom: 1px solid #1E2028; color: #d1d5db; font-size: 14px; text-align: right; font-weight: 500;">\${requestType}</td>
                       </tr>
                       <tr>
-                        <td style="padding: 8px 0; color: #6c757d; font-size: 14px;">Submitted:</td>
-                        <td style="padding: 8px 0; color: #212529; font-size: 14px; text-align: right;">${new Date().toLocaleString('en-US', { 
+                        <td style="padding: 10px 0; color: #8b949e; font-size: 14px;">Date</td>
+                        <td style="padding: 10px 0; color: #d1d5db; font-size: 14px; text-align: right;">\${new Date().toLocaleString('en-US', { 
                           dateStyle: 'medium', 
                           timeStyle: 'short' 
                         })}</td>
@@ -237,25 +237,25 @@ export async function POST(req: NextRequest) {
                     </table>
                   </div>
                   
-                  <p style="margin: 30px 0 20px; color: #212529; font-size: 16px; line-height: 1.6;">
-                    If you have any urgent questions, feel free to email us directly at <a href="mailto:masood@cwmservices.dev" style="color: #667eea; text-decoration: none;"><strong>masood@cwmservices.dev</strong></a>
+                  <p style="margin: 0 0 24px; color: #9ca3af; font-size: 15px; line-height: 1.7;">
+                    If you need immediate assistance or want to add more details, simply reply to this email.
                   </p>
                   
-                  <p style="margin: 0; color: #212529; font-size: 16px; line-height: 1.6;">
+                  <p style="margin: 0; color: #d1d5db; font-size: 16px; line-height: 1.7;">
                     Best regards,<br>
-                    <strong>The CWM Services Team</strong>
+                    <strong style="color: #ffffff;">The CWM Services Team</strong>
                   </p>
                 </td>
               </tr>
               
               <!-- Footer -->
               <tr>
-                <td style="background-color: #f8f9fa; padding: 30px 20px; text-align: center; border-top: 1px solid #e9ecef;">
-                  <p style="margin: 0 0 10px; color: #6c757d; font-size: 14px;">
-                    <strong>CWM Services</strong>
+                <td style="background-color: #0A0B10; padding: 30px 20px; text-align: center; border-top: 1px solid #1E2028;">
+                  <p style="margin: 0 0 8px; color: #e5e7eb; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">
+                    CWM Services
                   </p>
-                  <p style="margin: 0; color: #6c757d; font-size: 12px;">
-                    Transforming ideas into powerful digital solutions
+                  <p style="margin: 0; color: #6b7280; font-size: 13px;">
+                    Building the future of digital solutions.
                   </p>
                 </td>
               </tr>

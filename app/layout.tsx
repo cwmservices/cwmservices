@@ -3,11 +3,21 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
 
 const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-outfit",
+  display: "swap",
+});
+
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jakarta",
   display: "swap",
 });
 
@@ -25,9 +35,40 @@ const geist = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Cwmservices | Software Development Services",
+  metadataBase: new URL("https://cwmservices.dev"),
+  title: {
+    default: "Cwmservices | Software Development Services",
+    template: "%s | Cwmservices",
+  },
   description:
-    "Developing Professional Web and Mobile Applications Using Modern Technologies — React, Node, Tailwind CSS and Next.js",
+    "Developing Professional Web, Mobile & AI Applications. Specializing in modern technologies including React, Node, Next.js, AI Systems, RAG and MCP integrations.",
+  keywords: ["Software Development", "Web Development", "Mobile Apps", "AI Systems", "AI Software", "AI Website", "RAG", "MCP", "Next.js", "React", "Node.js"],
+  openGraph: {
+    title: "Cwmservices | Software & AI Development Services",
+    description: "Developing Professional Web, Mobile & AI Applications. Specializing in modern technologies including React, Node, Next.js, AI Systems, RAG and MCP integrations.",
+    url: "https://cwmservices.dev",
+    siteName: "Cwmservices",
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    title: "Cwmservices",
+    card: "summary_large_image",
+  },
+  alternates: {
+    canonical: "https://cwmservices.dev",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -36,7 +77,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning is required because the blocking script below
       may add class="dark" to <html> before React hydrates — that's intentional.
     */
-    <html lang="en" suppressHydrationWarning className="scroll-smooth scroll-pt-[80px] lg:scroll-pt-[90px] xl:scroll-pt-[100px]">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className="bg-[#0B0B0D] scroll-smooth scroll-pt-[80px] lg:scroll-pt-[90px] xl:scroll-pt-[100px]"
+    >
       <head>
         {/*
           ── BLOCKING theme script ────────────────────────────────────────
@@ -46,60 +91,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Because it's a plain <script> (not async/defer) the browser must
           execute it before rendering any HTML below it.
         */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                try {
-                  var stored = localStorage.getItem('theme');
-                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (stored === 'dark' || (!stored && prefersDark)) {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
 
-        {/* ── CSS custom properties — single source of truth ── */}
-        <style>{`
-          :root {
-            --color-dark:          #0F1420;
-            --color-light:         #F7F8FC;
-            --color-primary:       #F08700;
-            --color-secondary:     #F5A623;
-            --color-surface:       #F7F8FC;
-            --color-surface-muted: #EDEEF5;
-            --color-border:        #DDE0EE;
-            --color-ink:           #0F1420;
-            --color-ink-muted:     #5A6075;
-            --bg:                  var(--color-light);
-            --fg:                  var(--color-ink);
-          }
-          html.dark {
-            --color-surface:       #161C2D;
-            --color-surface-muted: #1D2538;
-            --color-border:        #252E44;
-            --color-ink:           #E4E7F2;
-            --color-ink-muted:     #8892AA;
-            --bg:                  var(--color-dark);
-            --fg:                  var(--color-ink);
-          }
-          *, *::before, *::after { box-sizing: border-box; margin: 0; }
-          body {
-            font-family: var(--font-geist), system-ui, sans-serif;
-            background-color: var(--bg);
-            color: var(--fg);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            transition: background-color 0.25s, color 0.25s;
-          }
-        `}</style>
       </head>
-      <body className={`${outfit.variable} ${geist.variable} font-body`}>
+      <body
+        className={`${outfit.variable} ${geist.variable} ${jakarta.variable} font-body bg-[#0B0B0D] text-white`}
+      >
         {children}
         <Analytics />
       </body>

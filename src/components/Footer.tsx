@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { motion } from "framer-motion";
 import ScrollToTopButton from "../utils/ScrollToTopButton";
@@ -12,31 +13,35 @@ import { MdFacebook } from "react-icons/md";
 import WhatsAppButton from "../utils/WhatsAppButton";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
 function Footer() {
   return (
     <>
-      <footer className="bg-light dark:bg-dark transition-colors duration-300 border-t border-border-light dark:border-border-dark relative z-30">
+      <footer className="bg-[#0A0B10] transition-colors duration-300 border-t border-gray-800 border-0.5 dark:border-border-dark relative z-30">
         <motion.div
-          className="w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto py-8 sm:py-10 flex flex-col md:flex-row items-center justify-between gap-6"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+          className="w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto py-8 sm:py-10 grid grid-cols-1 md:grid-cols-3 items-center gap-6"
+
         >
 
-          {/* Logo & Copyright */}
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-ink dark:text-ink-dark">
-              CWM<span className="text-primary">Services</span>.
-            </span>
-            <p className="font-body text-sm sm:text-[15px] text-ink-muted dark:text-ink-dark-muted text-center md:text-left">
-              © {new Date().getFullYear()} CWMServices. All rights reserved.
-            </p>
+          {/* Privacy links — left */}
+          <div className="flex items-center justify-center md:justify-start gap-5 order-2 md:order-1">
+            <Link
+              href="/privacy-policy"
+              className="font-body text-sm sm:text-[15px] text-gray-200 dark:text-ink-dark-muted opacity-70 hover:opacity-100 transition-opacity duration-200"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-and-conditions"
+              className="font-body text-sm sm:text-[15px] text-gray-200 dark:text-ink-dark-muted opacity-70 hover:opacity-100 transition-opacity duration-200"
+            >
+              Terms & Conditions
+            </Link>
           </div>
 
-          {/* Social Links */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+          {/* Social Links — center */}
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-5 order-1 md:order-2">
             {[
               { icon: AiFillLinkedin, href: "https://www.linkedin.com/in/cwmservices" },
               { icon: FaGithub, href: "https://www.github.com/cwmservices" },
@@ -49,17 +54,22 @@ function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full bg-surface dark:bg-surface-dark-muted border border-border-light dark:border-border-dark text-ink-muted dark:text-ink-dark-muted hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white hover:border-primary dark:hover:border-primary transition-all duration-300 hover:-translate-y-1 shadow-sm ring-1 ring-transparent hover:ring-primary/30"
+                className="text-gray-200 dark:text-ink-dark-muted opacity-70 hover:opacity-100 transition-opacity duration-200"
               >
                 <social.icon size={20} />
               </a>
             ))}
           </div>
+
+          {/* Copyright — right */}
+          <p className="font-body text-sm sm:text-[15px] text-gray-400 dark:text-ink-dark-muted text-center md:text-right order-3">
+            © 2026 CWMServices. All rights reserved.
+          </p>
         </motion.div>
-      </footer>
+      </footer >
 
       {/* Floating Action Buttons */}
-      <WhatsAppButton />
+      < WhatsAppButton />
       <ScrollToTopButton />
     </>
   );
