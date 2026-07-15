@@ -69,6 +69,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://cwmservices.dev",
   },
+  verification: {
+    google: "nCYkPCUFZtmL1Lxk3M43fmYBzEVp7PtGDTW_huf3dQA",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
