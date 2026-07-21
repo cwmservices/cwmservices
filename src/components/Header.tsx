@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { label: "Projects", path: "/#projects" },
   { label: "Testimonials", path: "/#testimonials" },
   { label: "Contact", path: "/#contact" },
+  { label: "Blog", path: "/blog" },
 ];
 
 function SunIcon() {
