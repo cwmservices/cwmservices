@@ -22,7 +22,7 @@ export default function Home() {
 
 
 
-  // updated version 2.0 with new node version and awesome UI
+  // updated version 2.1 with new node version and awesome UI
   return (
     <main>
       {/* <PageLoader isLoading={isLoading} /> */}
