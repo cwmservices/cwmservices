@@ -155,7 +155,7 @@ export default function Header() {
               : "bg-[#0B0B0D]",
           ].join(" ")}
         >
-          <div className="relative w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto flex items-center justify-between h-14 sm:h-[60px] lg:h-[68px] xl:h-[76px] transition-all duration-300">
+         <div className="relative w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1400px] mx-auto flex items-center justify-between h-14 sm:h-[60px] lg:h-[68px] xl:h-[76px] transition-all duration-300">
 
             {/* ── Logo: mobile (left) ── */}
             <Link href="/" className="flex lg:hidden items-center focus:outline-none shrink-0">
@@ -176,20 +176,19 @@ export default function Header() {
             </Link>
 
             {/* ── Desktop nav ── */}
-            {/* ── Desktop nav ── */}
-            <nav aria-label="Main" className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-3 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-              {NAV_ITEMS.map(({ label, path }) => (
-                <Link
-                  key={path}
-                  href={path}
-                  className="font-nav text-[14.5px] lg:text-[15px] xl:text-[16px] 2xl:text-[17px] font-medium tracking-[0.01em]
-                             px-3 lg:px-4 xl:px-5 py-2 rounded-lg text-ink-dark
-                             opacity-70 hover:opacity-100 transition-opacity duration-200"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
+         <nav aria-label="Main" className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-2 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+  {NAV_ITEMS.map(({ label, path }) => (
+    <Link
+      key={path}
+      href={path}
+      className="font-nav text-[14.5px] lg:text-[15px] xl:text-[16px] 2xl:text-[17px] font-medium tracking-[0.01em]
+                 px-2.5 lg:px-3 xl:px-3.5 py-2 rounded-lg text-ink-dark
+                 opacity-70 hover:opacity-100 transition-opacity duration-200"
+    >
+      {label}
+    </Link>
+  ))}
+</nav>
 
             {/* ── Mobile: Get a Quote — centered in the bar ── */}
             <button

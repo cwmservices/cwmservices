@@ -617,7 +617,6 @@ With that sit, I will come up with another awesome story like this! Follow for m
 
 Also, if you really like this article and wanna thank me, you can buy me a cup of coffee here- https://buymeacoffee.com/codewithmasood`,
     },
-
     {
       img: "roadmap",
       link: "https://medium.com/@CodeWithMasood/the-minimalist-roadmap-to-become-an-ai-engineer-2026-e496c65570ea",
@@ -1508,7 +1507,7 @@ Also if you really enjoyed the article and wanna buy me a cup of coffee as thank
     },
     {
       img: "post3",
-      link: "become-a-pro-web-developer-in-90-days-no-cs-degree-bc837f155958",
+      link: "https://www.medium.com/@codewithmasood/become-a-pro-web-developer-in-90-days-no-cs-degree-bc837f155958",
       title: "Become a Pro Web Developer in 90 Days",
       excerpt: `Whether you are looking to become a web developer in the future or you are already a web developer. In either case, this article is for you! In this article i will talk about 13 Essential Web Development Skills That Every Developer Should Know! These are the skills that will make you stand out in the world of web development.
 
@@ -1561,7 +1560,7 @@ So, we have reached at the end of our story and that sit! These were the 13 skil
     },
     {
       img: "post4",
-      link: "the-ultimate-react-developer-roadmap-for-beginners-become-a-job-ready-frontend-developer-in-10-9b2610e72aa5",
+      link: "https://www.medium.com/@codewithmasood/the-ultimate-react-developer-roadmap-for-beginners-become-a-job-ready-frontend-developer-in-10-9b2610e72aa5",
       title: "The Ultimate React Developer Roadmap for Beginners",
       excerpt: `Welcome to the ultimate react developer roadmap for beginners! In this single video i will cover the entire react developer roadmap from start to finish. So, if you want to become a successful react developer then read this article till the end. Now i have divided this article into three parts. In the first part we will cover the basics in which we will talk about what is react, How React works and How to get started with it. In the second part we will talk about some advanced concepts that needs to be learn in order to become a professional react developer and in this part you will also learn new skills that will help you create real world applications which also holds animations and other performance metric And finally the third part of this video is going to be a bonus tip on how to get a high paying frontend react developer job in a few days. So, i hope you are excited and let’s get started!!
 
@@ -1601,7 +1600,7 @@ So, guys i hope you enjoyed this step by step roadmap on react! For more content
     },
     {
       img: "post5",
-      link: "top-10-must-read-programming-books-for-developers-9bf384c11bf1",
+      link: "https://www.medium.com/@CodeWithMasood/top-10-must-read-programming-books-for-developers-9bf384c11bf1",
       title: "Top 10 Must-Read Programming Books for Developers",
       excerpt: `If you’re a developer or aspiring to be one, reading programming books can be an excellent way to expand your knowledge and skills in the field. With so many books out there, it can be challenging to choose the right ones to add to your reading list. Here are our top 10 must-read programming books for developers:
 
@@ -1777,7 +1776,6 @@ Also, feel free to show your support by buying me a coffee here
 
 Thanks 🤍`,
     },
-
   ]
 }
 

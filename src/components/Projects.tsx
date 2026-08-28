@@ -61,22 +61,6 @@ function Projects() {
                       0 8px 28px rgba(240, 135, 0, 0.10);
         }
 
-        /* ── Image zoom — the only motion on hover ── */
-        .project-img {
-          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .project-card:hover .project-img {
-          transform: scale(1.08);
-        }
-
-        /* ── Title colour transition on hover ── */
-        .project-title {
-          transition: color 0.2s ease;
-        }
-        .project-card:hover .project-title {
-          color: var(--color-primary, #F08700);
-        }
-
         /* ── Minimal modal fade ── */
         .modal-overlay {
           transition: opacity 0.2s ease;
@@ -90,7 +74,7 @@ function Projects() {
         className="bg-[#0A0B10] pb-20 mt-[-10px] pt-20 duration-300 relative sm:pb-20 lg:pb-20 xl:pb-20"
       >
         {/* ── Single shared container — same as header/services ── */}
-        <div className="w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto">
+        <div className="w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1400px] mx-auto">
           <div id="projects" className="py-14 scroll-mt-8">
             <h1 className="text-center text-3xl lg:text-5xl font-bold text-gray-100 font-display">
               Ou<span className="border-b pb-3 text-primary border-primary">r Fine</span>st Work
@@ -108,49 +92,67 @@ function Projects() {
                 onClick={() => openModal(project)}
                 className="project-card group relative flex flex-col bg-[#10121A] border border-white/10 rounded-2xl overflow-hidden cursor-pointer"
               >
-                {/* ── Image ── */}
-                <div className="relative w-full overflow-hidden bg-[#0A0B10]" style={{ aspectRatio: "16 / 10" }}>
-                  <Image
-                    src={project.img}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, (max-width: 1280px) 30vw, 28vw"
-                    className="project-img object-cover object-top transition-transform duration-500 ease-out group-hover:scale-110"
-                  />
-                  {/* Subtle gradient overlay at bottom of image */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                {/* ── Image — padded, rounded, slightly dimmer bg than the card ── */}
+                <div className="p-3 bg-[#141922] mb-3 sm:p-4">
+                  <div
+                    className="relative w-full overflow-hidden rounded-xl bg-black/20"
+                    style={{ aspectRatio: "16 / 10" }}
+                  >
+                    <Image
+                      src={project.img}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, (max-width: 1280px) 30vw, 28vw"
+                      className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
                 </div>
 
                 {/* ── Card Body ── */}
-                <div className="p-5 sm:p-6 xl:p-7 2xl:p-8 flex flex-col flex-grow">
-                  {/* Title row */}
-                  <div className="flex flex-wrap items-start justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
-                    <span className="focus:outline-none min-w-0">
-                      <h3 className="project-title font-display font-semibold text-lg sm:text-xl lg:text-[1.25rem] xl:text-[1.375rem] text-gray-100 leading-snug">
-                        {project.title}
-                      </h3>
-                    </span>
+                <div className="px-5 sm:px-6 xl:px-7 pb-5 sm:pb-6 xl:pb-7 flex flex-col flex-grow">
+                  {/* Tech chips — above title, max 4 visible */}
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3.5 sm:mb-4">
+                    {project.skills.slice(0, 3).map((skill: any) => (
+                      <span
+                        key={skill}
+                        className="font-body text-[10.5px] sm:text-[11.5px] xl:text-[12.5px] font-medium px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/5 text-gray-300 border border-white/10 whitespace-nowrap"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                    {project.skills.length > 3 && (
+                      <span className="font-body text-[10.5px] sm:text-[11.5px] xl:text-[12.5px] font-medium px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
+                        +{project.skills.length - 3}
+                      </span>
+                    )}
                   </div>
 
+                  {/* Title */}
+                  <h3 className="font-display font-semibold text-lg sm:text-xl lg:text-[1.25rem] xl:text-[1.375rem] text-gray-100 leading-snug mb-2.5 sm:mb-3 transition-colors duration-200 group-hover:text-primary">
+                    {project.title}
+                  </h3>
+
                   {/* Short description */}
-                  <p className="font-body text-gray-400 text-[13.5px] sm:text-[14px] lg:text-[14.5px] xl:text-[15px] leading-relaxed mb-5 sm:mb-6 xl:mb-7 flex-grow">
+                  <p className="font-body text-gray-400 text-[13.5px] sm:text-[14px] lg:text-[14.5px] xl:text-[15px] leading-relaxed mb-5 sm:mb-6 flex-grow">
                     {project.description.slice(0, 100) + ".."}
                   </p>
 
-                  {/* ── Footer: tech pills ── */}
-                  <div className="flex items-end justify-between gap-3 mt-auto">
-                    {/* Tech chips — max 4 visible */}
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 min-w-0">
-                      {project.skills.slice(0, 4).map((skill: any) => (
-                        <span
-                          key={skill}
-                          className="font-body text-[10.5px] sm:text-[11.5px] xl:text-[12.5px] font-medium px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/5 text-gray-300 border border-white/10 whitespace-nowrap"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  {/* ── Footer: View Project — arrow moves only when THIS is hovered ── */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openModal(project);
+                    }}
+                    className="group/btn font-nav text-[13px] sm:text-[13.5px] font-semibold text-gray-100 hover:text-primary transition-colors duration-200 inline-flex items-center gap-1 w-fit"
+                  >
+                    View Project
+                    <span
+                      aria-hidden
+                      className="inline-block transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+                    >
+                      ↗
+                    </span>
+                  </button>
                 </div>
               </div>
             ))}

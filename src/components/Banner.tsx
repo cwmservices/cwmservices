@@ -213,17 +213,22 @@ export default function Banner() {
 
       <Particles />
 
-      <div className="relative z-10 w-[92%] lg:w-[96%] xl:w-[92%] 2xl:w-[85%] max-w-[1600px] 2xl:max-w-[1900px] mx-auto py-16 sm:py-20 lg:py-24 xl:py-28 2xl:py-36 pb-24 lg:pb-28 2xl:pb-36">
-        <div className="flex flex-col items-center">
+      <div className="relative z-10 w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1400px] mx-auto py-16 sm:py-20 lg:py-24 xl:py-28 2xl:py-36 pb-24 lg:pb-28 2xl:pb-36">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-14 lg:gap-10 xl:gap-16 2xl:gap-24">
 
           {/* ── Copy + actions ── */}
-          <div className="flex flex-col items-center text-center max-w-2xl 2xl:max-w-3xl">
-            <h1 className="font-display max-w-[19ch] 2xl:max-w-[22ch] mx-auto text-[36px] sm:text-[46px] lg:text-[52px] 2xl:text-[64px] font-extrabold leading-[1.15] tracking-[-0.015em] text-white">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left max-w-2xl 2xl:max-w-3xl lg:max-w-none lg:flex-1 lg:shrink-0">
+            
+            <span className="font-nav text-[12.5px] lg:text-[13.5px] 2xl:text-[15px] font-semibold uppercase tracking-[0.08em] text-gray-400 mb-4 2xl:mb-5">
+    For Startups, Founders & Product Teams
+  </span>
+
+            <h1 className="font-display max-w-[19ch] 2xl:max-w-[22ch] mx-auto lg:mx-0 text-[36px] sm:text-[46px] lg:text-[52px] 2xl:text-[64px] font-extrabold leading-[1.15] tracking-[-0.015em] text-white">
               Build Your Next Product With Confidence.
             </h1>
 
-            <p className="font-body mt-6 2xl:mt-8 max-w-md 2xl:max-w-xl text-[15.5px] lg:text-[16.5px] 2xl:text-[19px] leading-relaxed text-[#B7BCC8]">
-              Fast, scalable and not AI-generated shortcuts. From MVPs to production systems, we create software that helps companies grow.            </p>
+            <p className="font-body mt-6 2xl:mt-8 max-w-md 2xl:max-w-xl mx-auto lg:mx-0 text-[15.5px] lg:text-[16.5px] 2xl:text-[19px] leading-relaxed text-[#B7BCC8]">
+              Fast, scalable and not AI-generated shortcuts. From idea to production-ready app in weeks, we create software that helps companies grow.            </p>
 
             <div className="mt-9 2xl:mt-12 flex flex-col sm:flex-row items-center gap-3 2xl:gap-4">
               <Link href="/#projects">
@@ -247,7 +252,7 @@ export default function Banner() {
           </div>
 
           {/* ── Editor mockup ── */}
-          <div className="relative w-full max-w-[380px] sm:max-w-[440px] md:max-w-[480px] xl:max-w-[520px] 2xl:max-w-[680px] mx-auto mt-16 lg:mt-20 2xl:mt-24">
+          <div className="relative w-full max-w-[380px] sm:max-w-[440px] md:max-w-[480px] xl:max-w-[520px] 2xl:max-w-[680px] mx-auto mt-16 lg:mt-0 lg:mx-0 lg:max-w-[440px] xl:max-w-[520px] 2xl:max-w-[680px] lg:flex-1 lg:shrink-0">
             {/* Soft blurred glow sitting behind the card — plain box-shadow
             blended into the black background, so this gives it a
             visible, ambient halo instead. */}

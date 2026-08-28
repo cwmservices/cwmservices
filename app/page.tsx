@@ -2,6 +2,8 @@
 
 import Banner from "@/src/components/Banner";
 import Contact from "@/src/components/Contact";
+import CTA from "@/src/components/CTA";
+import FAQ from "@/src/components/FAQSection";
 import Footer from "@/src/components/Footer";
 import Header from "@/src/components/Header";
 import Members from "@/src/components/Members";
@@ -30,7 +32,8 @@ export default function Home() {
       <Projects />
       <Testimonials />
       <Contact />
-
+      <FAQ/>
+      <CTA/>
       <Footer />
     </main>
   );

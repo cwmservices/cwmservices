@@ -16,7 +16,7 @@ function AboutPage() {
         <div className="w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto flex flex-col items-center">
 
           {/* Profile Image with subtle premium glow */}
-          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-8 ring-4 ring-primary/10 hover:ring-primary/30 transition-all duration-500 shadow-nav-dark">
+          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-8 transition-all duration-500 shadow-nav-dark">
             <Image
               src="/masood2.png"
               alt="Masood Ur Rehman"
