@@ -38,13 +38,13 @@ function Members() {
             onClick={() => scrollMembers.current.scrollBy({ left: -340, behavior: "smooth" })}
             className="bg-white dark:bg-gray-700 hover:scale-110 transition-transform duration-300 shadow-lg rounded-full p-4 flex items-center justify-center"
           >
-            <AiFillCaretLeft size={20} className="text-orange-500 dark:text-white" />
+            <AiFillCaretLeft size={20} className="text-orange-500 dark:text-foreground" />
           </button>
           <button
             onClick={() => scrollMembers.current.scrollBy({ left: 340, behavior: "smooth" })}
             className="bg-white dark:bg-gray-700 hover:scale-110 transition-transform duration-300 shadow-lg rounded-full p-4 flex items-center justify-center"
           >
-            <AiFillCaretRight size={20} className="text-orange-500 dark:text-white" />
+            <AiFillCaretRight size={20} className="text-orange-500 dark:text-foreground" />
           </button>
         </div>
           <div
@@ -60,7 +60,7 @@ function Members() {
                 {Member.name === "Masood" && (
                   <>
                   <div className="flex justify-center items-center absolute top-4 right-4 gap-1">
-                    <p className="pr-1 text-sm text-gray-500 dark:text-gray-200 font-semibold">Founder</p>
+                    <p className="pr-1 text-sm text-muted dark:text-gray-200 font-semibold">Founder</p>
                     <FaDotCircle className="text-orange-500" />
                   </div>
                   <Link href="/about" className="absolute hover:opacity-100 text-primary opacity-90 text-xl bottom-4 right-4">

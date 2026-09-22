@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -70,6 +70,34 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
+    const sync = (event: StorageEvent) => {
+      if (event.key !== "theme") return;
+      const next = event.newValue === "dark" ? "dark" : "light";
+      setTheme(next);
+      document.documentElement.classList.toggle("dark", next === "dark");
+      document.documentElement.dataset.theme = next === "dark" ? "cwmdark" : "cwmlight";
+    };
+    window.addEventListener("storage", sync);
+    return () => window.removeEventListener("storage", sync);
+  }, []);
+  const toggleTheme = () => {
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    document.documentElement.classList.toggle("dark", next === "dark");
+    document.documentElement.dataset.theme = next === "dark" ? "cwmdark" : "cwmlight";
+    try { localStorage.setItem("theme", next); } catch (_) { /* Storage may be unavailable. */ }
+  };
+  const themeButton = (
+    <button type="button" onClick={toggleTheme}
+      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-foreground hover:bg-tint transition-colors">
+      {theme === "light" ? <MoonIcon /> : <SunIcon />}
+    </button>
+  );
 
   /* Cross-page hash navigation fix */
   useEffect(() => {
@@ -105,9 +133,9 @@ export default function Header() {
 
   /* Full text button — used inside the mobile full-screen menu, in the same spot the icon pill would sit.
      Uses the ink tones (not primary orange) so it reads as a secondary control, not another CTA. */
-  const MobileThemeButton = (
+  const MobileQuoteButton = (
     <button
-      onClick={() => { closeDrawer(); }}
+      onClick={() => { closeDrawer(); setIsModalOpen(true); }}
       suppressHydrationWarning
       className="w-full flex items-center justify-center gap-2 font-nav text-[15px] font-semibold tracking-[0.01em]
                  py-3 rounded-full bg-primary text-white
@@ -119,40 +147,14 @@ export default function Header() {
 
   return (
     <>
-      <style jsx>{`
-        /* ── Toggle pill (theme switch) — unused in current markup, kept as-is ── */
-        .toggle-pill {
-          display: flex;
-          align-items: center;
-          width: 46px; height: 26px;
-          border-radius: 999px;
-          padding: 0 3px;
-          background: #232326;
-          transition: background 0.25s;
-          cursor: pointer;
-          flex-shrink: 0;
-        }
-        .toggle-thumb {
-          width: 18px; height: 18px;
-          border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
-          flex-shrink: 0;
-          background: #fff;
-          color: #F08700;
-          box-shadow: 0 1px 4px rgba(0,0,0,.18);
-          transition: transform 0.28s cubic-bezier(.4,0,.2,1), background 0.25s, color 0.25s;
-        }
-        .thumb-dark { transform: translateX(20px); background: #F08700; color: #fff; }
-      `}</style>
-
       <header className="sticky top-0 z-50 font-nav">
         {/* ── Bar ── */}
         <div
           className={[
             "relative transition-colors duration-300",
             scrolled
-              ? "bg-[#0B0B0D]/75 backdrop-blur-md"
-              : "bg-[#0B0B0D]",
+              ? "bg-canvas/75 backdrop-blur-md"
+              : "bg-canvas",
           ].join(" ")}
         >
          <div className="relative w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1400px] mx-auto flex items-center justify-between h-14 sm:h-[60px] lg:h-[68px] xl:h-[76px] transition-all duration-300">
@@ -182,7 +184,7 @@ export default function Header() {
       key={path}
       href={path}
       className="font-nav text-[14.5px] lg:text-[15px] xl:text-[16px] 2xl:text-[17px] font-medium tracking-[0.01em]
-                 px-2.5 lg:px-3 xl:px-3.5 py-2 rounded-lg text-ink-dark
+                 px-2.5 lg:px-3 xl:px-3.5 py-2 rounded-lg text-foreground
                  opacity-70 hover:opacity-100 transition-opacity duration-200"
     >
       {label}
@@ -191,21 +193,25 @@ export default function Header() {
 </nav>
 
             {/* ── Mobile: Get a Quote — centered in the bar ── */}
+            <div className="flex lg:hidden items-center gap-2">
+              {themeButton}
             <button
               onClick={() => setIsModalOpen(true)}
               className="font-nav text-[13px] xl:text-[15px] font-semibold tracking-[0.02em]
-                           px-4 py-1.5 lg:hidden rounded-full bg-transparent border border-gray-800 hover:bg-gray-800 duration-300 text-white whitespace-nowrap
+                           px-4 py-1.5 lg:hidden rounded-full bg-transparent border border-line hover:bg-tint duration-300 text-foreground whitespace-nowrap
                            opacity-90 hover:opacity-100 transition-opacity duration-200"
             >
               Get a Quote
             </button>
+            </div>
 
             {/* ── Desktop right controls ── */}
             <div className="hidden lg:flex items-center gap-3 xl:gap-5">
+              {themeButton}
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="font-nav text-[13px] xl:text-[15px] font-semibold tracking-[0.02em]
-                           px-6 py-2.5 rounded-full bg-transparent border border-gray-800 hover:bg-gray-800 duration-300 transition-background text-white whitespace-nowrap
+                           px-6 py-2.5 rounded-full bg-transparent border border-line hover:bg-tint duration-300 transition-background text-foreground whitespace-nowrap
                            opacity-90 hover:opacity-100 transition-all duration-200"
               >
                 Get a Quote
@@ -218,7 +224,7 @@ export default function Header() {
               onClick={toggleDrawer}
               aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
               aria-expanded={mobileOpen}
-              className="flex lg:hidden items-center justify-center w-9 h-9 text-ink-dark focus:outline-none"
+              className="flex lg:hidden items-center justify-center w-9 h-9 text-foreground focus:outline-none"
             >
               <MenuToggleIcon open={mobileOpen} />
             </button>
@@ -227,10 +233,10 @@ export default function Header() {
 
         {/* ── Full-screen mobile menu ── */}
         {mobileOpen && (
-          <div className="lg:hidden fixed inset-0 top-14 sm:top-[60px] z-40 bg-[#0B0B0D] overflow-y-auto">
+          <div className="lg:hidden fixed inset-0 top-14 sm:top-[60px] z-40 bg-canvas overflow-y-auto">
             <div className="w-[92%] mx-auto h-full flex flex-col pt-10 pb-10">
               {/* Dark / light mode, first */}
-              {MobileThemeButton}
+              {MobileQuoteButton}
 
               {/* Links */}
               <ul className="flex flex-col mt-10 gap-1">
@@ -239,7 +245,7 @@ export default function Header() {
                     <Link
                       href={path}
                       onClick={closeDrawer}
-                      className="block py-3.5 font-nav text-[22px] font-medium tracking-[0.01em] text-ink-dark
+                      className="block py-3.5 font-nav text-[22px] font-medium tracking-[0.01em] text-foreground
                                  opacity-70 hover:opacity-100 transition-opacity duration-200"
                     >
                       {label}

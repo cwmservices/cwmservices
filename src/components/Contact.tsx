@@ -7,7 +7,7 @@ const Modal = ({ isOpen, onClose, children }: any) => {
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-[100] animate-fadeIn">
-      <div className="bg-[#10121A] border border-white/10 rounded-2xl p-8 max-w-md w-full transform transition-all animate-scaleIn shadow-2xl mx-4">
+      <div className="bg-panel border border-line rounded-2xl p-8 max-w-md w-full transform transition-all animate-scaleIn shadow-2xl mx-4">
         {children}
       </div>
     </div>
@@ -135,24 +135,24 @@ function Contact() {
 
   return (
     <section
-      className="bg-[#0A0B10] mt-[-10px] duration-300 relative pb-20 sm:pb-20 lg:pb-20 xl:pb-20"
+      className="bg-canvas mt-[-10px] duration-300 relative pb-20 sm:pb-20 lg:pb-20 xl:pb-20"
     >
       <div className="w-[92%] lg:w-[96%] xl:w-[92%] max-w-[1600px] mx-auto">
         <div
           id="contact"
           className="text-center mb-3 py-14 scroll-mt-24"
         >
-          <h1 className="text-center text-3xl lg:text-5xl font-display font-bold text-gray-100">
-            Ge<span className="border-b pb-3 text-primary border-primary">t In Tou</span>ch
+          <h1 className="text-center text-3xl lg:text-5xl font-display font-bold text-foreground">
+            Get In Touch
           </h1>
-          <p className="max-w-2xl mx-auto font-body text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-gray-300">
+          <p className="max-w-2xl mx-auto font-body text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-muted">
             We enjoy partnering with companies that share our vision of enhancing their online presence.
-            Let's turn your ideas into powerful digital solutions. <span className="font-semibold text-gray-100">masood@cwmservices.dev</span>
+            Let's turn your ideas into powerful digital solutions. <span className="font-semibold text-foreground">masood@cwmservices.dev</span>
           </p>
         </div>
 
         <div
-          className="bg-[#10121A] border border-white/10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.2)] p-6 sm:p-8 md:p-12 max-w-4xl mx-auto relative overflow-hidden group"
+          className="bg-panel border border-line rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.2)] p-6 sm:p-8 md:p-12 max-w-4xl mx-auto relative overflow-hidden group"
         >
           <form
             onSubmit={handleSubmit}
@@ -165,7 +165,7 @@ function Contact() {
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="Your Name"
-                className={`w-full font-body text-gray-100 bg-[#0A0B10] border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.name ? "border-red-500 shake" : ""} ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`w-full font-body text-foreground bg-canvas border border-line rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.name ? "border-red-500 shake" : ""} ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
               />
               {errors.name && (
                 <p className="text-red-500 font-body text-xs mt-2 ml-1 animate-slideDown">{errors.name}</p>
@@ -179,7 +179,7 @@ function Contact() {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Your Email"
-                className={`w-full font-body text-gray-100 bg-[#0A0B10] border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.email ? "border-red-500 shake" : ""} ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`w-full font-body text-foreground bg-canvas border border-line rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.email ? "border-red-500 shake" : ""} ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
               />
               {errors.email && (
                 <p className="text-red-500 font-body text-xs mt-2 ml-1 animate-slideDown">{errors.email}</p>
@@ -192,11 +192,11 @@ function Contact() {
                   type="button"
                   onClick={() => !isSubmitting && setIsDropdownOpen(!isDropdownOpen)}
                   disabled={isSubmitting}
-                  className={`w-full font-body text-gray-100 bg-[#0A0B10] border border-white/10 rounded-xl px-5 py-4 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                  className={`w-full font-body text-foreground bg-canvas border border-line rounded-xl px-5 py-4 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
                   <span>{formData.requestType}</span>
                   <svg
-                    className={`w-5 h-5 text-gray-400 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
+                    className={`w-5 h-5 text-muted transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -210,13 +210,13 @@ function Contact() {
                   </svg>
                 </button>
                 {isDropdownOpen && (
-                  <div className="absolute z-20 w-full mt-2 bg-[#10121A] border border-white/10 rounded-xl shadow-xl overflow-hidden animate-slideDown">
+                  <div className="absolute z-20 w-full mt-2 bg-panel border border-line rounded-xl shadow-xl overflow-hidden animate-slideDown">
                     <div
                       onClick={() => {
                         setFormData({ ...formData, requestType: "Service Request" });
                         setIsDropdownOpen(false);
                       }}
-                      className="px-5 py-4 font-body text-gray-100 hover:bg-[#0A0B10] cursor-pointer transition-colors"
+                      className="px-5 py-4 font-body text-foreground hover:bg-canvas cursor-pointer transition-colors"
                     >
                       Service Request
                     </div>
@@ -225,7 +225,7 @@ function Contact() {
                         setFormData({ ...formData, requestType: "Career Opportunity" });
                         setIsDropdownOpen(false);
                       }}
-                      className="px-5 py-4 font-body text-gray-100 hover:bg-[#0A0B10] cursor-pointer transition-colors border-t border-white/10"
+                      className="px-5 py-4 font-body text-foreground hover:bg-canvas cursor-pointer transition-colors border-t border-line"
                     >
                       Career Opportunity
                     </div>
@@ -240,12 +240,12 @@ function Contact() {
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Tell us about your project..."
-                className={`w-full h-40 font-body text-gray-100 bg-[#0A0B10] border border-white/10 rounded-xl px-5 py-4 resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.message ? "border-red-500 shake" : ""} ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`w-full h-40 font-body text-foreground bg-canvas border border-line rounded-xl px-5 py-4 resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${errors.message ? "border-red-500 shake" : ""} ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
               ></textarea>
               {errors.message && (
                 <p className="text-red-500 font-body text-xs mt-2 ml-1 animate-slideDown">{errors.message}</p>
               )}
-              <p className="font-body text-xs text-gray-400 mt-2 text-right">
+              <p className="font-body text-xs text-muted mt-2 text-right">
                 {formData.message.length}/2000 characters
               </p>
             </div>
@@ -258,7 +258,7 @@ function Contact() {
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-3">
-                    <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                    <svg className="animate-spin h-5 w-5 text-foreground" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
@@ -280,8 +280,8 @@ function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-display font-bold mb-4 text-gray-100">Message Sent!</h2>
-              <p className="mb-8 text-gray-400 leading-relaxed">
+              <h2 className="text-2xl font-display font-bold mb-4 text-foreground">Message Sent!</h2>
+              <p className="mb-8 text-muted leading-relaxed">
                 Thank you for reaching out! We've received your message and will get back to you within 24-48 hours.
               </p>
             </>
@@ -292,15 +292,15 @@ function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-display font-bold mb-4 text-gray-100">Oops! Submission Failed</h2>
-              <p className="mb-8 text-gray-400 leading-relaxed">
-                We couldn't send your message. Please try again or contact us directly at <strong className="text-gray-100">masood@cwmservices.dev</strong>
+              <h2 className="text-2xl font-display font-bold mb-4 text-foreground">Oops! Submission Failed</h2>
+              <p className="mb-8 text-muted leading-relaxed">
+                We couldn't send your message. Please try again or contact us directly at <strong className="text-foreground">masood@cwmservices.dev</strong>
               </p>
             </>
           )}
           <button
             onClick={closeModal}
-            className="w-full sm:w-auto px-8 py-3 bg-[#0A0B10] text-gray-100 border border-white/10 rounded-xl font-display font-medium opacity-80 hover:opacity-100 transition-opacity duration-200"
+            className="w-full sm:w-auto px-8 py-3 bg-canvas text-foreground border border-line rounded-xl font-display font-medium opacity-80 hover:opacity-100 transition-opacity duration-200"
           >
             Close Window
           </button>

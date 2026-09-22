@@ -126,7 +126,7 @@ export default function PageLoader({ isLoading }: PageLoaderProps) {
                 fontWeight: 200,
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
-                fontFamily: "var(--font-outfit), sans-serif",
+                fontFamily: "var(--font-geist), sans-serif",
               }}
             >
               CWM<span style={{ color: "#F08700" }}>Services</span>

@@ -20,14 +20,14 @@ function Testimonials() {
 
   return (
     <section
-      className="bg-[#0A0B10] mt-[-10px] duration-300 relative py-20 sm:py-20 lg:py-20 xl:py-20"
+      className="bg-canvas mt-[-10px] duration-300 relative py-20 sm:py-20 lg:py-20 xl:py-20"
     >
       <div className="w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1400px] mx-auto">
         <div id="testimonials" className="py-14 scroll-mt-24">
-          <h1 className="text-center text-3xl lg:text-5xl font-display font-bold text-gray-100">
-            What O<span className="border-b pb-3 text-primary border-primary">ur Clie</span>nts Say
+          <h1 className="text-center text-3xl lg:text-5xl font-display font-bold text-foreground">
+            What Our Clients Say
           </h1>
-          <p className="text-center font-body text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-gray-300">
+          <p className="text-center font-body text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-muted">
             Hear from our clients around the world
           </p>
         </div>
@@ -36,7 +36,7 @@ function Testimonials() {
           {testimonials.slice(0, 6).map((Testimonial: any, i: number) => (
             <blockquote
               key={Testimonial.id}
-              className="flex flex-col justify-between bg-[#10121A] border border-white/10 rounded-2xl px-6 md:px-7 xl:px-8 py-7 md:py-8 xl:py-9"
+              className="flex flex-col justify-between bg-panel border border-line rounded-2xl px-6 md:px-7 xl:px-8 py-7 md:py-8 xl:py-9"
             >
               <div className="flex justify-between items-start w-full mb-5">
                 <div className="flex gap-1.5">
@@ -51,12 +51,12 @@ function Testimonials() {
                 />
               </div>
 
-             <p className="font-body italic text-gray-300 text-[16px] lg:text-[17px] leading-relaxed flex-grow">
+             <p className="font-body text-muted text-[16px] lg:text-[17px] leading-relaxed flex-grow">
   "{Testimonial.testimonial}"
 </p>
 
-              <footer className="mt-7 flex items-center gap-3 w-full pt-4">
-                <span className="font-display font-semibold text-gray-100 text-[15.5px] flex-grow">
+              <footer className="mt-7 flex items-center gap-3 w-full pt-5 border-t border-line">
+                <span className="font-display font-semibold text-foreground text-[15.5px] flex-grow">
                   {Testimonial.name}
                 </span>
                 <img

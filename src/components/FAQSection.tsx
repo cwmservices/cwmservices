@@ -52,27 +52,26 @@ function FAQ() {
   const toggle = (i: number) => setOpenIndex((prev) => (prev === i ? null : i));
 
   const indexed = FAQS.map((f, i) => ({ ...f, i }));
-  const leftColumn = indexed.filter((f) => f.i % 2 === 0);
-  const rightColumn = indexed.filter((f) => f.i % 2 === 1);
-
   const renderItem = (faq: (typeof indexed)[number]) => (
     <div
       key={faq.question}
-      className="bg-[#10121A] border border-white/10 rounded-2xl overflow-hidden transition-colors duration-200 hover:border-primary/40"
+      className="bg-panel border border-line rounded-2xl overflow-hidden transition-colors duration-200 hover:border-primary/40"
     >
       <button
         onClick={() => toggle(faq.i)}
+        aria-expanded={openIndex === faq.i}
+        aria-controls={`faq-answer-${faq.i}`}
         className="w-full flex items-center justify-between gap-4 text-left px-5 sm:px-6 py-4 sm:py-5"
       >
-        <span className="font-nav text-[14px] sm:text-[15px] font-semibold text-gray-100">
+        <span className="font-nav text-[14px] sm:text-[15px] font-semibold text-foreground">
           {faq.question}
         </span>
-        <span className="shrink-0 w-7 h-7 rounded-full border border-white/15 flex items-center justify-center text-gray-400">
+        <span className="shrink-0 w-7 h-7 rounded-full border border-line flex items-center justify-center text-muted">
           {openIndex === faq.i ? <Minus size={14} /> : <Plus size={14} />}
         </span>
       </button>
       {openIndex === faq.i && (
-        <p className="font-body text-[13.5px] sm:text-[14.5px] text-gray-400 leading-relaxed px-5 sm:px-6 pb-5">
+        <p id={`faq-answer-${faq.i}`} className="font-body text-[13.5px] sm:text-[14.5px] text-muted leading-relaxed px-5 sm:px-6 pb-5">
           {faq.answer}
         </p>
       )}
@@ -80,13 +79,13 @@ function FAQ() {
   );
 
   return (
-    <section id="faq" className="bg-[#0A0B10] py-20 sm:py-24 lg:py-28 relative">
-      <div className="w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1400px] mx-auto">
+    <section id="faq" className="bg-canvas py-20 sm:py-24 lg:py-28 relative">
+      <div className="w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[760px] mx-auto">
         <div className="mb-14 lg:mb-16">
-          <h2 className="text-center text-3xl lg:text-5xl font-bold text-gray-100 font-display">
-            Questions We Get <span className="border-b pb-3 text-primary border-primary">Asked O</span>ften
+          <h2 className="text-center text-3xl lg:text-5xl font-bold text-foreground font-display">
+            Frequently Asked Questions
           </h2>
-          <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-gray-300 font-body max-w-2xl mx-auto">
+          <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-muted font-body max-w-2xl mx-auto">
             Can&apos;t find an answer?{" "}
             <Link href="/#contact" className="text-primary hover:opacity-80 transition-opacity duration-200">
               Book a free call
@@ -95,10 +94,7 @@ function FAQ() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
-          <div className="flex flex-col gap-4 sm:gap-5">{leftColumn.map(renderItem)}</div>
-          <div className="flex flex-col gap-4 sm:gap-5">{rightColumn.map(renderItem)}</div>
-        </div>
+        <div className="flex flex-col gap-3">{indexed.map(renderItem)}</div>
       </div>
     </section>
   );

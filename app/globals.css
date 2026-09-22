@@ -39,8 +39,8 @@
 
 html,
 body {
-  background-color: #0b0b0d;
-  color: #fff;
+  background-color: rgb(var(--canvas));
+  color: rgb(var(--foreground));
   min-height: 100%;
   overscroll-behavior-y: none;
 }
@@ -57,4 +57,41 @@ body {
 ::-moz-selection {
   background: #2563eb;
   color: #ffffff;
+}
+/* Shared surfaces and typography for both themes. */
+:root {
+  color-scheme: light;
+  --canvas: 250 249 247;
+  --panel: 255 255 255;
+  --foreground: 28 30 35;
+  --muted: 99 103 113;
+  --line: 225 225 224;
+  --tint: 242 241 238;
+  --accent: 172 86 0;
+  --code-keyword: #7951a8;
+  --code-string: #35734b;
+  --code-function: #356aa5;
+}
+:root.dark {
+  color-scheme: dark;
+  --canvas: 10 11 16;
+  --panel: 16 18 26;
+  --foreground: 239 240 243;
+  --muted: 163 168 181;
+  --line: 43 46 56;
+  --tint: 24 27 36;
+  --accent: 240 135 0;
+  --code-keyword: #c792ea;
+  --code-string: #89ca78;
+  --code-function: #82aaff;
+}
+body { -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { letter-spacing: -0.035em; }
+button, input, textarea, select { font-family: inherit; }
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 4px; }
+::selection { background: rgb(var(--accent) / .22); color: rgb(var(--foreground)); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }

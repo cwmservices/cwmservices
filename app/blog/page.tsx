@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
     return (
-        <div className="flex flex-col min-h-screen bg-[#0A0B10]">
+        <div className="flex flex-col min-h-screen bg-canvas">
             <Header />
             {/* Hero Banner */}
             <div className="relative mb-14 w-full py-20 text-center overflow-hidden">
@@ -55,7 +55,7 @@ export default function BlogPage() {
                     <h1 className="font-primary font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-light mb-4 leading-tight">
                         Our Medium Library
                     </h1>
-                    <p className="font-jakarta font-normal text-base md:text-lg lg:text-xl text-gray-300 mb-6 max-w-2xl mx-auto px-4">
+                    <p className="font-jakarta font-normal text-base md:text-lg lg:text-xl text-muted mb-6 max-w-2xl mx-auto px-4">
                         Visit <a href="https://www.medium.com/@codewithmasood"><span className="opacity-95 hover:opacity-100 transition-opacity duration-300 text-primary">medium.com/@CodeWithMasood</span></a> for more tech stories.
                     </p>
                 </div>
@@ -68,7 +68,7 @@ export default function BlogPage() {
                     {data.posts.map((post) => (
                         <article
                             key={post.link}
-                            className="bg-[#10121A] border border-white/10 rounded-2xl overflow-hidden flex flex-col h-full transition-colors duration-300 hover:border-primary/50"
+                            className="bg-panel border border-line rounded-2xl overflow-hidden flex flex-col h-full transition-colors duration-300 hover:border-primary/50"
                         >
                             <div className="relative w-full aspect-[16/9] overflow-hidden">
                                 <Image
@@ -80,12 +80,12 @@ export default function BlogPage() {
                             </div>
 
                             <div className="p-8 flex flex-col flex-grow">
-                                <h3 className="font-display font-semibold text-xl xl:text-2xl text-gray-100 mb-4">
+                                <h3 className="font-display font-semibold text-xl xl:text-2xl text-foreground mb-4">
                                     {post.title}
                                 </h3>
 
                                 <p
-                                    className="font-body text-gray-400 text-[15px] flex-grow"
+                                    className="font-body text-muted text-[15px] flex-grow"
                                     style={{
                                         display: "-webkit-box",
                                         WebkitLineClamp: 4,

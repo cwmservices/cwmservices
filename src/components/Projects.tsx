@@ -71,15 +71,15 @@ function Projects() {
       `}</style>
 
       <section
-        className="bg-[#0A0B10] pb-20 mt-[-10px] pt-20 duration-300 relative sm:pb-20 lg:pb-20 xl:pb-20"
+        className="bg-canvas pb-20 mt-[-10px] pt-20 duration-300 relative sm:pb-20 lg:pb-20 xl:pb-20"
       >
         {/* ── Single shared container — same as header/services ── */}
         <div className="w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1400px] mx-auto">
           <div id="projects" className="py-14 scroll-mt-8">
-            <h1 className="text-center text-3xl lg:text-5xl font-bold text-gray-100 font-display">
-              Ou<span className="border-b pb-3 text-primary border-primary">r Fine</span>st Work
+            <h1 className="text-center text-3xl lg:text-5xl font-bold text-foreground font-display">
+              Our Finest Work
             </h1>
-            <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-gray-300 font-body">
+            <p className="text-center text-lg px-4 lg:text-xl mt-6 lg:mt-10 text-muted font-body">
               A showcase of our capabilities and the projects we&apos;ve built.
             </p>
           </div>
@@ -90,10 +90,10 @@ function Projects() {
               <div
                 key={project.title}
                 onClick={() => openModal(project)}
-                className="project-card group relative flex flex-col bg-[#10121A] border border-white/10 rounded-2xl overflow-hidden cursor-pointer"
+                className="project-card group relative flex flex-col bg-panel border border-line rounded-2xl overflow-hidden cursor-pointer"
               >
                 {/* ── Image — padded, rounded, slightly dimmer bg than the card ── */}
-                <div className="p-3 bg-[#141922] mb-3 sm:p-4">
+                <div className="p-3 bg-panel mb-3 sm:p-4">
                   <div
                     className="relative w-full overflow-hidden rounded-xl bg-black/20"
                     style={{ aspectRatio: "16 / 10" }}
@@ -115,25 +115,25 @@ function Projects() {
                     {project.skills.slice(0, 3).map((skill: any) => (
                       <span
                         key={skill}
-                        className="font-body text-[10.5px] sm:text-[11.5px] xl:text-[12.5px] font-medium px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/5 text-gray-300 border border-white/10 whitespace-nowrap"
+                        className="font-body text-[10.5px] sm:text-[11.5px] xl:text-[12.5px] font-medium px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-tint text-muted border border-line whitespace-nowrap"
                       >
                         {skill}
                       </span>
                     ))}
                     {project.skills.length > 3 && (
-                      <span className="font-body text-[10.5px] sm:text-[11.5px] xl:text-[12.5px] font-medium px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
+                      <span className="font-body text-[10.5px] sm:text-[11.5px] xl:text-[12.5px] font-medium px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-tint text-muted border border-line">
                         +{project.skills.length - 3}
                       </span>
                     )}
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-display font-semibold text-lg sm:text-xl lg:text-[1.25rem] xl:text-[1.375rem] text-gray-100 leading-snug mb-2.5 sm:mb-3 transition-colors duration-200 group-hover:text-primary">
+                  <h3 className="font-display font-semibold text-lg sm:text-xl lg:text-[1.25rem] xl:text-[1.375rem] text-foreground leading-snug mb-2.5 sm:mb-3 transition-colors duration-200 group-hover:text-primary">
                     {project.title}
                   </h3>
 
                   {/* Short description */}
-                  <p className="font-body text-gray-400 text-[13.5px] sm:text-[14px] lg:text-[14.5px] xl:text-[15px] leading-relaxed mb-5 sm:mb-6 flex-grow">
+                  <p className="font-body text-muted text-[13.5px] sm:text-[14px] lg:text-[14.5px] xl:text-[15px] leading-relaxed mb-5 sm:mb-6 flex-grow">
                     {project.description.slice(0, 100) + ".."}
                   </p>
 
@@ -143,7 +143,7 @@ function Projects() {
                       e.stopPropagation();
                       openModal(project);
                     }}
-                    className="group/btn font-nav text-[13px] sm:text-[13.5px] font-semibold text-gray-100 hover:text-primary transition-colors duration-200 inline-flex items-center gap-1 w-fit"
+                    className="group/btn font-nav text-[13px] sm:text-[13.5px] font-semibold text-foreground hover:text-primary transition-colors duration-200 inline-flex items-center gap-1 w-fit"
                   >
                     View Project
                     <span

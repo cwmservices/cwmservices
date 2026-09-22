@@ -1,34 +1,13 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
-import { Plus_Jakarta_Sans } from "next/font/google";
 
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-outfit",
-  display: "swap",
-});
-
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-jakarta",
-  display: "swap",
-});
 
 // updated 
 
 const geist = localFont({
-  src: [
-    { path: "../node_modules/geist/dist/fonts/geist-sans/Geist-Regular.woff2", weight: "400" },
-    { path: "../node_modules/geist/dist/fonts/geist-sans/Geist-Medium.woff2", weight: "500" },
-    { path: "../node_modules/geist/dist/fonts/geist-sans/Geist-SemiBold.woff2", weight: "600" },
-  ],
+  src: [{ path: "../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2", weight: "100 900" }],
   variable: "--font-geist",
   display: "swap",
   fallback: ["system-ui", "sans-serif"],
@@ -83,21 +62,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className="bg-[#0B0B0D] scroll-smooth scroll-pt-[80px] lg:scroll-pt-[90px] xl:scroll-pt-[100px]"
+      className="bg-canvas scroll-smooth scroll-pt-[80px] lg:scroll-pt-[90px] xl:scroll-pt-[100px]"
     >
       <head>
-        {/*
-          ── BLOCKING theme script ────────────────────────────────────────
-          Runs synchronously before the first paint so there is NEVER a
-          flash of the wrong theme. It reads localStorage['theme']; if not
-          set it falls back to the OS preference (prefers-color-scheme).
-          Because it's a plain <script> (not async/defer) the browser must
-          execute it before rendering any HTML below it.
-        */}
-
+        <script dangerouslySetInnerHTML={{ __html: `try { var t = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'; document.documentElement.classList.toggle('dark', t === 'dark'); document.documentElement.dataset.theme = t === 'dark' ? 'cwmdark' : 'cwmlight'; } catch (_) { document.documentElement.dataset.theme = 'cwmlight'; }` }} />
       </head>
       <body
-        className={`${outfit.variable} ${geist.variable} ${jakarta.variable} font-body bg-[#0B0B0D] text-white`}
+        className={`${geist.variable} font-body bg-canvas text-foreground`}
       >
         {children}
         <Analytics />

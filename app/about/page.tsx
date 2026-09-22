@@ -9,7 +9,7 @@ import Footer from "@/src/components/Footer";
 
 function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0A0B10]">
+    <div className="flex flex-col min-h-screen bg-canvas">
       <Header />
 
       <main className="flex-grow flex flex-col items-center justify-center py-20 lg:py-24">
@@ -27,7 +27,7 @@ function AboutPage() {
             />
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-ink-dark drop-shadow-sm">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground drop-shadow-sm">
             Masood Ur Rehman
           </h1>
 
@@ -38,7 +38,7 @@ function AboutPage() {
           <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-primary/80 to-transparent my-10 relative"></div>
 
           {/* Structured Text Content using Brand Fonts */}
-          <article className="max-w-4xl text-gray-400 font-body text-[15px] sm:text-base md:text-[17px] lg:text-lg leading-relaxed text-center space-y-6">
+          <article className="max-w-4xl text-muted font-body text-[15px] sm:text-base md:text-[17px] lg:text-lg leading-relaxed text-center space-y-6">
             <p>
               I began my journey as a full-stack developer, building end-to-end applications for individuals and working on hobby projects. Over time, this path naturally evolved
               into successful freelancing and then founding my own agency, where I focus on delivering reliable,
@@ -57,7 +57,7 @@ function AboutPage() {
               development, with a strong interest in how intelligent systems can
               improve workflows and digital products.
             </p>
-            <p className="font-semibold text-ink-dark text-lg pt-4">
+            <p className="font-semibold text-foreground text-lg pt-4">
               ~ Driven by curiosity. Focused on quality. Building with purpose.
             </p>
           </article>

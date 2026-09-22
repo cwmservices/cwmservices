@@ -20,10 +20,10 @@ function Section({
 }) {
     return (
         <section className="mb-10">
-            <h2 className="font-display text-xl md:text-2xl font-semibold text-ink-dark mb-3">
+            <h2 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-3">
                 {title}
             </h2>
-            <div className="font-body text-[15px] md:text-base text-ink-dark-muted leading-relaxed space-y-4">
+            <div className="font-body text-[15px] md:text-base text-foreground-muted leading-relaxed space-y-4">
                 {children}
             </div>
         </section>
@@ -32,18 +32,18 @@ function Section({
 
 function TermsPage() {
     return (
-        <div className="flex flex-col min-h-screen bg-[#0A0B10]">
+        <div className="flex flex-col min-h-screen bg-canvas">
             <Header />
 
             <main className="flex-grow py-16 lg:py-20">
                 <div className="w-[92%] lg:w-[80%] xl:w-[70%] max-w-[900px] mx-auto">
 
 
-                    <h1 className="font-display mt-5 text-3xl md:text-4xl lg:text-[42px] font-bold text-ink-dark">
+                    <h1 className="font-display mt-5 text-3xl md:text-4xl lg:text-[42px] font-bold text-foreground">
                         Terms & Conditions
                     </h1>
 
-                    <p className="font-body mt-2 text-sm text-ink-dark-muted/70">
+                    <p className="font-body mt-2 text-sm text-foreground-muted/70">
                         Last updated: July 16, 2026
                     </p>
 

@@ -40,7 +40,7 @@ const SOCIALS = [
 function Footer() {
   return (
     <>
-      <footer className="bg-[#0A0B10] transition-colors duration-300 border-t border-gray-800 border-0.5 dark:border-border-dark relative z-30">
+      <footer className="bg-canvas transition-colors duration-300 border-t border-line border-0.5 dark:border-border-dark relative z-30">
         {/* ── Upper section: logo left, menu columns right ── */}
         <div className="w-[92%] lg:w-[90%] xl:w-[88%] 2xl:w-[85%] max-w-[1400px] mx-auto pt-14 sm:pt-16 lg:pt-20 pb-10 sm:pb-12">
           <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-16">
@@ -48,9 +48,9 @@ function Footer() {
             <div className="flex flex-col gap-4 max-w-xs">
               <Link href="/" className="flex items-center gap-2.5">
                 <Image src="/cwmlogo.png" alt="CWM" width={32} height={32} className="rounded-full" />
-                <span className="font-display font-bold text-lg text-gray-100">CWMServices</span>
+                <span className="font-display font-bold text-lg text-foreground">CWMServices</span>
               </Link>
-              <p className="font-body text-[13.5px] leading-relaxed text-gray-400">
+              <p className="font-body text-[13.5px] leading-relaxed text-muted">
                 We build fast, scalable web and mobile apps for startups and product teams — from MVP to production.
               </p>
             </div>
@@ -59,7 +59,7 @@ function Footer() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-12 lg:gap-16">
               {/* Company */}
               <div>
-                <h4 className="font-nav text-[12.5px] font-semibold uppercase tracking-[0.08em] text-gray-500 mb-4">
+                <h4 className="font-nav text-[12.5px] font-semibold uppercase tracking-[0.08em] text-muted mb-4">
                   Company
                 </h4>
                 <ul className="flex flex-col gap-3">
@@ -67,7 +67,7 @@ function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="font-body text-[14px] text-gray-300 opacity-80 hover:opacity-100 hover:text-primary transition-all duration-200"
+                        className="font-body text-[14px] text-muted opacity-80 hover:opacity-100 hover:text-primary transition-all duration-200"
                       >
                         {link.label}
                       </Link>
@@ -78,7 +78,7 @@ function Footer() {
 
               {/* Services */}
               <div>
-                <h4 className="font-nav text-[12.5px] font-semibold uppercase tracking-[0.08em] text-gray-500 mb-4">
+                <h4 className="font-nav text-[12.5px] font-semibold uppercase tracking-[0.08em] text-muted mb-4">
                   Services
                 </h4>
                 <ul className="flex flex-col gap-3">
@@ -86,7 +86,7 @@ function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="font-body text-[14px] text-gray-300 opacity-80 hover:opacity-100 hover:text-primary transition-all duration-200"
+                        className="font-body text-[14px] text-muted opacity-80 hover:opacity-100 hover:text-primary transition-all duration-200"
                       >
                         {link.label}
                       </Link>
@@ -97,7 +97,7 @@ function Footer() {
 
               {/* Get in touch */}
               <div className="col-span-2 sm:col-span-1">
-                <h4 className="font-nav text-[12.5px] font-semibold uppercase tracking-[0.08em] text-gray-500 mb-4">
+                <h4 className="font-nav text-[12.5px] font-semibold uppercase tracking-[0.08em] text-muted mb-4">
                   Get In Touch
                 </h4>
                 <ul className="flex flex-col gap-3 mb-5">
@@ -105,7 +105,7 @@ function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="font-body text-[14px] text-gray-300 opacity-80 hover:opacity-100 hover:text-primary transition-all duration-200"
+                        className="font-body text-[14px] text-muted opacity-80 hover:opacity-100 hover:text-primary transition-all duration-200"
                       >
                         {link.label}
                       </Link>
@@ -120,7 +120,7 @@ function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-gray-300 opacity-80 hover:opacity-100 hover:text-primary transition-all duration-200"
+                      className="text-muted opacity-80 hover:opacity-100 hover:text-primary transition-all duration-200"
                     >
                       <social.icon size={18} />
                     </a>
@@ -137,19 +137,19 @@ function Footer() {
             <div className="flex items-center justify-center gap-5 order-2 md:order-1">
               <Link
                 href="/privacy-policy"
-                className="font-body text-sm sm:text-[15px] text-gray-200 dark:text-ink-dark-muted opacity-70 hover:opacity-100 transition-opacity duration-200"
+                className="font-body text-sm sm:text-[15px] text-foreground dark:text-foreground-muted opacity-70 hover:opacity-100 transition-opacity duration-200"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms-and-conditions"
-                className="font-body text-sm sm:text-[15px] text-gray-200 dark:text-ink-dark-muted opacity-70 hover:opacity-100 transition-opacity duration-200"
+                className="font-body text-sm sm:text-[15px] text-foreground dark:text-foreground-muted opacity-70 hover:opacity-100 transition-opacity duration-200"
               >
                 Terms & Conditions
               </Link>
             </div>
 
-            <p className="font-body text-sm sm:text-[15px] text-gray-400 dark:text-ink-dark-muted text-center md:text-right order-1 md:order-2">
+            <p className="font-body text-sm sm:text-[15px] text-muted dark:text-foreground-muted text-center md:text-right order-1 md:order-2">
               © 2026 CWMServices. All rights reserved.
             </p>
           </motion.div>

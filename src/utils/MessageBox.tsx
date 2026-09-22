@@ -61,6 +61,28 @@ const MessageModal = ({ isOpen, onClose }) => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const frame = requestAnimationFrame(() => messageBox.current?.querySelector('input[type="email"], button')?.focus());
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && !isLoading) onClose();
+      if (event.key !== 'Tab') return;
+      const controls = messageBox.current?.querySelectorAll('button:not(:disabled), input:not(:disabled):not([type="file"]), textarea:not(:disabled), a[href]');
+      if (!controls?.length) return;
+      const first = controls[0] as HTMLElement;
+      const last = controls[controls.length - 1] as HTMLElement;
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener('keydown', onKeyDown);
+      previousFocus?.focus();
+    };
+  }, [isOpen, isLoading]);
+
   const quickReplies = [
     "Hey Masood U., can you help me with...",
     "Would it be possible to get a custom offer for...",
@@ -226,18 +248,20 @@ const MessageModal = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-6 bg-black/60 backdrop-blur-sm transition-all duration-300">
       <div
         ref={messageBox}
-        className="bg-[#0A0B10] border border-transparent md:border-white/10 w-full h-[100dvh] md:h-auto md:max-h-[85vh] lg:max-h-[92vh] xl:max-h-[85vh] 2xl:min-h-[85vh] xl:min-h-[86vh] md:max-w-[480px] flex flex-col md:rounded-2xl shadow-2xl overflow-hidden transition-all duration-300"
+        role="dialog" aria-modal="true" aria-label="Get a quote"
+        className="bg-canvas border border-transparent md:border-line w-full h-[100dvh] md:h-auto md:max-h-[85vh] lg:max-h-[92vh] xl:max-h-[85vh] md:max-w-[520px] flex flex-col md:rounded-2xl shadow-2xl overflow-hidden transition-all duration-300"
       >
         {!isSuccess ? (
           <>
-            <div className="flex justify-between items-center p-4 md:p-5 border-b border-white/10 bg-[#10121A]/50">
+            <div className="flex justify-between items-center p-5 md:p-7 border-b border-line bg-panel/50">
               <div className="flex items-center">
                 <img src="/cwmlogo.png" alt="Logo" className="w-9 rounded-full h-9 mr-3 object-cover shadow-sm" />
-                <h2 className="text-base md:text-lg text-gray-100 font-display font-bold tracking-wide">Message Masood U.</h2>
+                <h2 className="text-base md:text-lg text-foreground font-display font-bold tracking-tight">Get a Quote</h2>
               </div>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-primary transition-colors p-1"
+                aria-label="Close quote form"
+                className="text-muted hover:text-primary transition-colors p-1"
                 disabled={isLoading}
               >
                 <X size={22} />
@@ -258,46 +282,47 @@ const MessageModal = ({ isOpen, onClose }) => {
               </div>
             )}
 
-            <div className="flex-grow p-4 md:p-5 overflow-y-auto custom-scrollbar">
+            <div className="flex-grow p-5 md:p-7 overflow-y-auto custom-scrollbar">
               <div className="mb-4">
                 <input
                   type="email"
-                  placeholder="Contact Email"
+                  aria-label="Contact email"
+                  placeholder="you@company.com"
                   value={email}
                   onChange={handleEmailChange}
                   disabled={hasSubmitted}
-                  className={`w-full font-body text-gray-100 placeholder-gray-500 p-3.5 bg-[#10121A] text-[15px] border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${emailError ? 'border-red-400 focus:border-red-400' : 'border-white/10 focus:border-primary'
+                  className={`w-full font-body text-foreground placeholder-gray-500 p-3.5 bg-panel text-[15px] border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${emailError ? 'border-red-400 focus:border-red-400' : 'border-line focus:border-primary'
                     } ${hasSubmitted ? 'opacity-50 cursor-not-allowed' : ''}`}
                 />
                 {emailError && <p className="text-red-500 font-body text-xs mt-1.5 ml-1">{emailError}</p>}
               </div>
 
               <div className="relative">
-                <textarea
-                  className={`w-full h-36 font-body text-gray-100 placeholder-gray-500 p-3.5 bg-[#10121A] text-[15px] border rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${messageError ? 'border-red-400 focus:border-red-400' : 'border-white/10 focus:border-primary'
+                <textarea aria-label="Project details"
+                  className={`w-full h-36 font-body text-foreground placeholder-gray-500 p-3.5 bg-panel text-[15px] border rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${messageError ? 'border-red-400 focus:border-red-400' : 'border-line focus:border-primary'
                     } ${hasSubmitted ? 'opacity-50 cursor-not-allowed' : ''}`}
                   placeholder="Ask Masood U. a question or share your project details (requirements, timeline, budget, etc.)"
                   value={message}
                   onChange={handleMessageChange}
                   disabled={hasSubmitted}
                 />
-                <div className="absolute bottom-3 right-3 text-[12px] font-body text-gray-400">
+                <div className="absolute bottom-3 right-3 text-[12px] font-body text-muted">
                   {message.length}/250
                 </div>
               </div>
               {messageError && <p className="text-red-500 font-body text-xs mt-1.5 ml-1">{messageError}</p>}
 
               <div className="mt-5 space-y-2">
-                <p className="text-xs font-display font-semibold text-gray-400 mb-2 uppercase tracking-wider">Quick Replies</p>
+                <p className="text-xs font-display font-semibold text-muted mb-2 uppercase tracking-tightr">Quick Replies</p>
                 <div className="flex flex-wrap gap-2">
                   {quickReplies.map((reply, index) => (
                     <button
                       key={index}
                       onClick={() => handleQuickReply(reply)}
                       disabled={hasSubmitted}
-                      className={`text-[13px] font-body text-left border rounded-full px-3.5 py-1.5 border-white/10 transition-opacity duration-200 ${hasSubmitted
-                        ? 'opacity-40 cursor-not-allowed text-gray-400'
-                        : 'opacity-70 hover:opacity-100 text-gray-300'
+                      className={`text-[13px] font-body text-left border rounded-full px-3.5 py-1.5 border-line transition-opacity duration-200 ${hasSubmitted
+                        ? 'opacity-40 cursor-not-allowed text-muted'
+                        : 'opacity-70 hover:opacity-100 text-muted'
                         }`}
                     >
                       {reply}
@@ -307,7 +332,7 @@ const MessageModal = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            <div className="border-t border-white/10 p-4 md:p-5 flex items-center bg-[#10121A]/30">
+            <div className="border-t border-line p-5 md:p-7 flex items-center bg-panel/30">
               <div className="flex-grow flex items-center">
                 <input
                   type="file"
@@ -320,15 +345,15 @@ const MessageModal = ({ isOpen, onClose }) => {
                 <button
                   onClick={() => !hasSubmitted && fileInputRef.current?.click()}
                   disabled={hasSubmitted}
-                  className={`text-gray-400 hover:text-primary transition-colors p-2 -ml-2 rounded-full ${hasSubmitted ? 'opacity-50 cursor-not-allowed' : ''
+                  className={`text-muted hover:text-primary transition-colors p-2 -ml-2 rounded-full ${hasSubmitted ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
                   title="Attach image (max 5MB)"
                 >
                   <Paperclip size={20} />
                 </button>
                 {selectedFile && (
-                  <div className="flex items-center gap-2 ml-2 bg-[#10121A] px-3 py-1.5 rounded-full border border-white/10">
-                    <span className="text-[13px] font-body text-gray-100 truncate max-w-[100px] md:max-w-[150px]">
+                  <div className="flex items-center gap-2 ml-2 bg-panel px-3 py-1.5 rounded-full border border-line">
+                    <span className="text-[13px] font-body text-foreground truncate max-w-[100px] md:max-w-[150px]">
                       {selectedFile.name}
                     </span>
                     <button
@@ -349,7 +374,7 @@ const MessageModal = ({ isOpen, onClose }) => {
                 disabled={hasSubmitted || isLoading || !!emailError || !!messageError || message.length < 40}
                 className={`flex items-center justify-center font-display text-[14px] font-[600] tracking-[0.03em] px-5 py-2.5 rounded-xl transition-opacity duration-200 ${!hasSubmitted && !isLoading && !emailError && !messageError && message.length >= 40
                   ? 'bg-primary text-white opacity-80 hover:opacity-100'
-                  : 'bg-[#10121A] text-gray-500 cursor-not-allowed opacity-60'
+                  : 'bg-panel text-muted cursor-not-allowed opacity-60'
                   }`}
               >
                 {isLoading ? (
@@ -370,8 +395,8 @@ const MessageModal = ({ isOpen, onClose }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-3xl font-display font-bold mb-4 text-gray-100">Thank You!</h2>
-            <p className="mb-8 font-body text-[15px] text-gray-400 max-w-sm leading-relaxed">
+            <h2 className="text-3xl font-display font-bold mb-4 text-foreground">Thank You!</h2>
+            <p className="mb-8 font-body text-[15px] text-muted max-w-sm leading-relaxed">
               I have received your quote request and will get back to you via the provided email as soon as possible.
             </p>
             <button

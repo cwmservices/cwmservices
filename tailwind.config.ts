@@ -12,17 +12,23 @@ const config: Config = {
     extend: {
       // ── Typography ────────────────────────────────────────────────
       fontFamily: {
-        display: ["var(--font-outfit)", "sans-serif"],
+        display: ["var(--font-geist)", "sans-serif"],
         body: ["var(--font-geist)", "sans-serif"],
-        nav: ["var(--font-jakarta)", "sans-serif"], // add this
-        primary: ["var(--font-outfit)", "sans-serif"],
+        nav: ["var(--font-geist)", "sans-serif"], // add this
+        primary: ["var(--font-geist)", "sans-serif"],
         secondary: ["var(--font-geist)", "sans-serif"],
       },
       // ── Brand Colours ─────────────────────────────────────────────
       colors: {
+        canvas: "rgb(var(--canvas) / <alpha-value>)",
+        panel: "rgb(var(--panel) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        line: "rgb(var(--line) / <alpha-value>)",
+        tint: "rgb(var(--tint) / <alpha-value>)",
         dark: "#0F1420",   // deep ink navy
         light: "#F7F8FC",   // barely-blue off-white
-        primary: "#F08700",   // signature amber-orange
+        primary: "rgb(var(--accent) / <alpha-value>)",   // signature amber-orange
         secondary: "#F5A623",   // golden amber (hover / gradient end)
 
         surface: {
