@@ -22,7 +22,7 @@ export default function Home() {
 
 
 
-  // updated version 2.1 with new node version and awesome UI
+  // updated version 3 with upgraded UI dark/light mode with new node version and awesome UI
   return (
     <main>
       {/* <PageLoader isLoading={isLoading} /> */}
@@ -32,8 +32,8 @@ export default function Home() {
       <Projects />
       <Testimonials />
       <Contact />
-      <FAQ/>
-      <CTA/>
+      <FAQ />
+      <CTA />
       <Footer />
     </main>
   );
